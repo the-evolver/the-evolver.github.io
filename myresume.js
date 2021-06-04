@@ -123,8 +123,8 @@ function portfolioscroll(){
 function contactscroll(){
     
     var s_id=setInterval(() => {
-        if(window.pageYOffset<3350){
-            scrollBy(0,20);
+        if(window.pageYOffset<3300){
+            scrollBy(0,50);
         }else{
             clearInterval(s_id);
         }
