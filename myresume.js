@@ -74,7 +74,7 @@ function expiescroll(){
     
     var ex_id=setInterval(() => {
         if(window.pageYOffset<1300){
-            scrollBy(0,100);
+            scrollBy(0,50);
         }else{
             clearInterval(ex_id);
         }
@@ -90,7 +90,7 @@ function eduscroll(){
     
     var ed_id=setInterval(() => {
         if(window.pageYOffset<2255){
-            scrollBy(0,100);
+            scrollBy(0,50);
         }else{
             clearInterval(ed_id);
         }
@@ -107,7 +107,7 @@ function portfolioscroll(){
     
     var po_id=setInterval(() => {
         if(window.pageYOffset<3300){
-            scrollBy(0,100);
+            scrollBy(0,50);
         }else{
             clearInterval(po_id);
         }
@@ -124,7 +124,7 @@ function contactscroll(){
     
     var s_id=setInterval(() => {
         if(window.pageYOffset<3350){
-            scrollBy(0,100);
+            scrollBy(0,50);
         }else{
             clearInterval(s_id);
         }
