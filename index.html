@@ -1,1307 +1,1161 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>ATUL KUMAR</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atul Kumar, backend engineer</title>
+<meta name="description" content="Atul Kumar is a backend engineer in Bengaluru who builds rate limiters, event pipelines and gateways in Java, Spring Boot, Kafka, Redis and AWS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fog:#E8ECF0;
+  --paper:#F7F9FB;
+  --ink:#13213A;
+  --ink2:#4A5872;
+  --line:rgba(19,33,58,.14);
+  --line-strong:rgba(19,33,58,.28);
+  --cobalt:#2A54F5;
+  --ok:#0E9466;
+  --amber:#E39A0B;
+  --amber-text:#8A5900;
+  --red:#D63A40;
+  --display:"Bricolage Grotesque", system-ui, sans-serif;
+  --body:"IBM Plex Sans", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, monospace;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--fog);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:6px;z-index:10}
+.skip:focus{left:12px}
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="myresume.css">
-    <meta name="viewport" content="Width=content-width, initial-scale=1">
-    <style type="text/css">
-        body {
-        margin: 0px;
-        font-family: sans-serif;
-        font-size: 30px;
-        }
-        
-        
-        
-        /* Body Header */
-        
-        #body-header {
-        height: 65vh;
-        opacity: 0.8;
-        background-image: url(https://ninjasfiles.s3.amazonaws.com/asset_0000000000000020_1549743985_macbook_mouse.jpg);
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        padding-top: 1.2rem;
-        }
-        
-        /* Horizontal Lists */
-        
-        .horizontal-list {
-        list-style: none;
-        padding-left: 0px;
-        margin: 0px;
-        }
-        
-        .horizontal-list li {
-        display: inline-block;
-        margin: 0px 8px 8px 0px;
-        font-weight: 100;
-        font-size: 0.9rem;
-        }
-        
-        
-        .horizontal-list li a {
-        color: white;
-        text-decoration: none;
-        }
-        
-        .nav-menu li a {
-        transition: color 0.5s, border-bottom 0.4s;
-        }
-        
-        .nav-menu li a:hover {
-        color: lightgrey;
-        border-bottom: 1px solid black;
-        }
-        
-        .text-center {
-        text-align: center;
-        }
-        /* nav -menu when page gets small*/
-        .drop-down{
-        
-        
-        display: inline-block;
-        position: relative;
-        display: none;
-        }
-        
-        .drop-down-list{
-        /*display: none;*/
-        position: absolute;
-        display: none;
-        
-        
-        
-        
-        }
-        
-        .menu{
-        display: none;
-        min-height: 40px;
-        min-width: 60px;
-        background-color: lightgrey;
-        border:1px solid grey;
-        text-align: center;
-        box-sizing: border-box;
-        padding-top:10px;
-        z-index: 1;
-        
-        
-        
-        }
-        .drop-down-list div a{
-        text-decoration: none;
-        color: brown;
-        
-        }
-        
-        /* Name and Social Icons*/
-        
-        #name-social-container {
-        margin-top: 20vh;
-        }
-        
-        #my-name {
-        font-size: 3rem;
-        letter-spacing: 0.1rem;
-        color: white;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        }
-        
-        
-        .social-icons li a i {
-        /*color: red;*/
-        padding: 10px;
-        font-size: 1rem;
-        border-radius: 50%;
-        }
-        
-        
-        .social-icons li a i:hover {
-        box-shadow: 0px 0px 6px 4px rgba(230, 196, 196, 0.3);
-        }
-        
-        
-        
-        #about {
-        height: auto;
-        width: 100%;
-        position: relative;
-        }
-        
-        #my-image {
-        height: 12rem;
-        width: 12rem;
-        margin: auto;
-        margin-top: -17vh;
-        }
-        
-        #my-image img {
-        height: 100%;
-        width: 100%;
-        border-radius: 50%;
-        border: 3px solid white;
-        box-shadow: 1px 1px 10px 2px lightgrey;
-        }
-        
-        
-        #about-para {
-        padding: 10px;
-        width: 70%;
-        text-align: justify;
-        color: grey;
-        line-height: 28px;
-        font-size: 1.1rem;
-        margin: auto;
-        }
-        
-        .text-highlight {
-        color: #2857a4;
-        font-weight: 600;
-        }
-        
-        
-        /* section-wise   */
-        section:nth-child(2n){
-        background-color:#EFEFEF;
-        }
-        
-        section:nth-child(2n+3){    /* used 2n+3 as i dont want 1st section to grt this css */
-        background-color:white;
-        }
-        
-        /* skills */
-        
-        #skills  {
-        
-        height: auto;
-        width: 100vw;
-        
-        margin: auto;
-        padding-bottom: 50px;
-        
-        
-        
-        }
-        
-        
-        
-        /*.section-header {
-        color: #2857A4;
-        font-family: sans-serif;
-        font-weight: 350;
-        letter-spacing: 3px;
-        display: flex;
-        justify-content: center;
-        padding-top: 30px;
-        font-size: 30px;
-        margin-bottom: 90px;*/
-        
-        
-        /* class for header */
-        .section-header{
-        display: flex;
-        justify-content: center;
-        padding-top: 30px;
-        font-size: 30px;
-        margin-bottom: 90px;
-        
-        }
-        
-        .header{
-        color: #2857A4;
-        font-family: sans-serif;
-        font-weight: 200;
-        letter-spacing: 3px;
-        }
-        
-        
-        
-        #skill-main{
-        
-        
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        
-        
-        
-        
-        }
-        
-        
-        
-        
-        /*#skill-main div{
-        
-        display: inline-block;
-        width: 250px;
-        border:4px solid grey;
-        border-radius: 50px;
-        color:#FFFFFF;
-        background-color: #D3D3D3;
-        margin:0px 20px 50px 20px;
-        
-        }
-        #skill-main span{
-        
-        display: inline-block;
-        border-top-left-radius: 50px;
-        border-bottom-left-radius: 50px;
-        box-sizing: border-box;
-        padding-left: 10px;
-        font-family: serif;
-        font-style: 100;
-        box-shadow: 0px 0px 5px 0px #9E9E8A;
-        
-        
-        
-        
-        
-        }
-        
-        #sm1 {
-        width: 100px;
-        background-color: #2857A4;
-        
-        }
-        #sm2{
-        width:150px;
-        background-color: #EC4E34
-        }
-        #sm3{
-        width: 140px;
-        background-color: #93738C;
-        }
-        #sm4{
-        width: 70px;
-        background-color: #368277;
-        
-        }
-        #sm5{
-        width: 100px;
-        
-        background-color: #2857A4;
-        }
-        #sm6{
-        width: 160px;
-        
-        background-color:#93738C;
-        }*/
-        
-        #skill-main-div{
-        width: 250px;
-        height: 45px;
-        background-color: #D3D3D3;
-        border-radius:25px; 
-        margin-right:40px;
-        margin-bottom: 60px;
-        
-        
-        }
-        .percent-indicator{
-        
-        height: 100%;
-        
-        border-radius:22px 0px 0px 22px;
-        box-sizing: border-box;
-        box-shadow: 6px 0px 12px 0px #767652;
-        }
-        .skill-name{
-        height:auto;
-        color: white;
-        font-size:1.1rem;
-        margin: 10px;
-        font-family: monospace;
-        
-        
-        }
-        #cplus-skill{
-        width: 57%;
-        background-color: #2857A4;
-        
-        }
-        #ds-skill{
-        width: 55%;
-        background-color: #458252;
-        }
-        #html-skill{
-        width: 85%;
-        background-color: #EC4E34;
-        }
-        #css-skill{
-        width: 70%;
-        background-color: #93738C;
-        }
-        
-        #js-skill{
-        
-        width: 75%;
-        background-color: #368176;
-        }
-        
-        #nodejs-skill{
-        width: 51%;
-        background-color: #234A91;
-        
-        }
-        
-        #cp-skill{
-        width: 50%;
-        background-color: #584ABC;
-        
-        }
-        /*work experience*/
-        #experience{
-        width:100vw;
-        
-        
-        
-        
-        }
-        #timeline{
-        width:80vw;
-        
-        position:relative;
-        margin:auto;
-        padding-left:30px;
-        /*border:2px solid black;*/
-        }
-        .timeline-box{
-        width:40%;
-        position:relative;
-        min-height:200px;
-        
-        /*border:2px solid maroon;*/
-        background:linear-gradient(lightgrey,white);
-        padding:20px;
-        
-        }
-        
-        .timeline-box:nth-child(2n){
-        left:53%;
-        
-        }
-        #timeline-indicator  {
-        position:absolute;
-        left:50%;
-        top:10%;
-        width:0px;
-        height:70%;
-        
-        
-        padding-top:30px;
-        border-right:5px dashed #94D3FA;
-        }
-        #timeline-indicator >i{
-        position:sticky;
-        top:50px;
-        margin-left:-20px;
-        transform: rotate(0.25turn);
-        color:#2857A4;
-        }
-        #mark-dot1{
-        position:absolute;
-        top:-9px;
-        left:6px;
-        margin-left:-20px;
-        color:lightgrey;
-        
-        
-        }
-        #mark-dot2{
-        position:absolute;
-        top:34%;
-        left:6px;
-        margin-left:-20px;
-        color:lightgrey;
-        }  
-        #mark-dot3{
-        position:absolute;
-        top:68%;
-        left:6px;
-        margin-left:-20px;
-        color:lightgrey;
-        
-        }  
-        #mark-dot4{
-        position:absolute;
-        top:99%;
-        left:6px;
-        margin-left:-20px;
-        color:lightgrey;
-        }  
-        
-        
-        /* .timeline-box-header{
-        
-        
-        } */
-        
-        .timeline-box-header span img{
-        height: 50px;
-        width: 50px;
-        margin-bottom: -10px;
-        }
-        .timeline-box-header span:nth-child(2){
-        font-size: 22px;
-        text-align: right;
-        display: block;
-        color: #2857A4;
-        font-weight: bold;
-        margin-bottom: 10px;
-        margin-top: -50px;
-        
-        }
-        
-        .timeline-box-header span:nth-child(3){
-        font-size: 19px;
-        text-align: right;
-        display: block;
-        color:#EB8339;
-        font-weight: bold;
-        margin-bottom: 5px;
-        
-        }
-        .timeline-box-header span:nth-child(4){
-        font-size: 15px;
-        text-align: right;
-        display: block;
-        color:#37889E;
-        }
-        .timeline-box-main h6{
-        font-size: 19px;
-        margin-bottom: -20px;
-        margin-left: 10px;
-        margin-top: 15px;
-        color: #368176;
-        }
-        .timeline-box-main ul li{
-        color:#632F57;
-        font-size: 13px;
-        }
-        
-        
-        
-        /* portfolio--*/
-        
-        #portfolio{
-        width: 85vw;
-        height:auto;
-        margin: auto;
-        /*margin-bottom: 40px;*/
-        }
-        
-        #portfolio-main{
-        
-        
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction:row;
-        justify-content: space-around;
-        
-        
-        
-        }
-        /*#portfolio-main div{
-        height: 50px;
-        width: 30px;
-        display: inline;
-        }
-        #portfolio-main:nth-child(2n){
-        background-image: url("https://ninjasfiles.s3.amazonaws.com/asset_0000000000000024_1550237299_codezen.png");
-        background-size:contain; 
-        
-        }*/
-        
-        /*#portfolio-main:nth-child(2n){
-        background-image: url("https://ninjasfiles.s3.amazonaws.com/asset_0000000000000025_1550237330_codezen_2.png");
-        background-size: contain;
-        }*/
-        .para{
-        height: 100%;
-        width: 100%;
-        min-height: 100px;
-        min-width: 200px;
-        background-color:#C3C3C3;
-        opacity: 0.6;
-        visibility: hidden;
-        box-sizing: border-box;
-        padding: 30px 10px;
-        box-shadow: 0px 0px 8px 4px #1152BB;
-        transition: box-shadow 2s;
-        
-        
-        
-        }
-        .portfolio-main-1{
-        height: 25vh;
-        width: 20vw;
-        min-width: 250px;
-        min-height: 150px;
-        background-size: contain;
-        background-image:url("https://ninjasfiles.s3.amazonaws.com/asset_0000000000000025_1550237330_codezen_2.png");
-        background-repeat: no-repeat;
-        margin: 40px;
-        
-        font-size: 20px;
-        
-        
-        }
-        .portfolio-main-2{
-        height: 25vh;
-        width: 20vw;
-        min-width: 250px;
-        min-height: 150px;
-        background-image: url("https://ninjasfiles.s3.amazonaws.com/asset_0000000000000024_1550237299_codezen.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        margin: 40px;
-        
-        font-size: 20px;
-        }
-        
-        .portfolio-main-1:hover,.portfolio-main-2:hover{
-        background-color: lightgrey;
-        background-position: center;
-        
-        color:#2D6886;
-        text-align: center;
-        
-        
-        
-        }
-        .portfolio-main-1:hover .para {
-        visibility: visible;
-        color:#253870 ;
-        font-family:monospace;
-        font-size: 30px;
-        
-        
-        
-        }
-        .portfolio-main-2:hover .para {
-        visibility: visible;
-        color:#2D6886;
-        font-family:monospace;
-        font-size: 30px;
-        
-        }
-        /* contact-section */
-        #contact{
-        width: 100vw;
-        height: auto;
-        
-        background: linear-gradient(to top right,#2B539D,#403066 60%);
-        
-        /*margin-top: 30px;*/
-        }
-        #contact .header{
-        color:white;
-        font-family:"times new roman";
-        
-        }
-        
-        #contact-main{
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        }
-        #contact-main-input-box{
-        width: 40%;
-        }
-        
-        
-        input[name="message"]{
-        height: 80px;
-        width: 90%;
-        
-        background: inherit;
-        border: unset;
-        border-bottom: 2px solid white;
-        margin-bottom: 10px;
-        }
-        input[name="name"]{
-        height: 50px;
-        width: 90%;
-        background: inherit;
-        border: unset;
-        border-bottom: 2px solid white;
-        margin-bottom: 10px;
-        
-        }
-        input[name="email"]{
-        height: 50px;
-        width: 90%;
-        background: inherit;
-        border: unset;
-        border-bottom: 2px solid white;
-        margin-bottom: 10px;
-        
-        }
-        input[name="submit"]{
-        height: 40px;
-        width: 30%;
-        background: inherit;
-        color: white;
-        border: 2px solid white;
-        margin-bottom: 10px;
-        font-family: monospace;
-        font-size: 1.2rem;
-        min-width: 150px;
-        margin: 10% 0 0 30%;
-        
-        }
-        #contact-main-info{
-        width: 40%;
-        height: auto;
-        }
-        
-        #info-header{
-        margin-top:3px;
-        }
-        #info-header span{
-        font-size: 1.3rem;
-        font-weight: 700;
-        color: white;
-        letter-spacing: 1.5px;
-        font-family: sans-serif;
-        }
-        #info-header p{
-        font-size: 1rem;
-        color: lightgrey;
-        letter-spacing: 1.5px;
-        
-        }
-        /*#info-main{
-        
-        }*/
-        
-        #info-main-header{
-        font-size: 1.3rem;
-        font-weight: 700;
-        color: white;
-        letter-spacing: 1.5px;
-        font-family: sans-serif;
-        }
-        #info-main-main{
-        font-size: 1.3rem;
-        color: lightgrey;
-        letter-spacing: 1.5px;
-        margin-top: 20px;
-        
-        }
-        #info-main-main div{
-        margin-bottom: 20px;
-        }
-        div i{
-        padding: 5px;
-        margin-right: 10px;
-        
-        
-        
-        
-        }
-        
-        #social-icons{
-        padding-bottom: 40px;
-        }
-        #social-icons li{
-        margin-top:20px;
-        margin-right: 20px;
-        
-        }
-        
-        /* media queries*/
-        
-        @media screen and (max-width:768px){
-        .timeline-box{
-        width: 80%;
-        
-        }
-        .timeline-box:nth-child(2n){
-        left:5%;
-        
-        }
-        .timeline-box:nth-child(2n+1){
-        left:5%;
-        
-        }
-        
-        #timeline-indicator{
-        left: 2.5%;
-        }
-        
-        #contact-main-input-box{
-        width: 80%;
-        margin-bottom: 15vh;
-        }
-        
-        #contact-main-info{
-        width: 80%;
-        height: auto;
-        margin-bottom: 20px;
-        
-        }
-        /* name on header */
-        #my-name {
-        font-size: 2.5rem;
-        font-weight: 700;
-        }
-        /* section-header*/
-        .section-header{
-        font-size: 25px;
-        }
-        .header{
-        letter-spacing: 0px;
-        }
-        
-        
-        }
-        @media screen and (max-width: 572px){
-        
-        .nav-menu{
-        visibility:visible;
-        }
-        .drop-down{
-        
-        
-        display: inline-block;
-        visibility:visibile;
-        
-        }
-        
-        .drop-down:hover .menu{
-        display: block;
-        visibility:visibile;
-        }
-        .menu:hover{
-        background-color: grey;
-        box-shadow: 0px 0px 4px 4px #5B2929;
-	visibility:visibile;
-        
-        }
-      #name-social-container{
-		position:relative;
-	        top:-15%;
-	
-     }
-			
-		
-        
-        }
-        
-        
-        
-        
-        </style>
-        
+/* top bar */
+.top{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:22px;padding-bottom:22px}
+.mark{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.01em;text-decoration:none;font-variation-settings:"wdth" 90}
+.top nav{display:flex;gap:26px}
+.top nav a{font-size:15px;color:var(--ink2);text-decoration:none}
+.top nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero-head{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px;align-items:end;padding-top:28px;padding-bottom:30px}
+h1.name{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(68px,12.2vw,176px);line-height:.84;letter-spacing:-.045em;font-variation-settings:"wdth" 76,"opsz" 96}
+h1.name span{display:block}
+.intro{max-width:46ch;padding-bottom:10px}
+.intro p{margin:0 0 14px}
+.lede{font-size:20px;line-height:1.5}
+.status{display:inline-flex;align-items:center;gap:10px;font-size:15px;color:var(--ink2);margin-top:4px}
+.status i{width:9px;height:9px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(14,148,102,.16)}
+
+.stage{border:1px solid var(--line);border-radius:20px;background:
+  radial-gradient(circle at 1px 1px, rgba(19,33,58,.13) 1px, transparent 1.4px) 0 0/22px 22px, var(--paper);overflow:hidden}
+#sim{display:block;width:100%;height:clamp(420px,58vh,600px);cursor:crosshair;touch-action:manipulation}
+.stage-hint{position:absolute;left:20px;top:16px;margin:0;font-size:14px;color:var(--ink2);pointer-events:none;max-width:34ch;line-height:1.45}
+#tip{position:absolute;z-index:2;pointer-events:none;background:var(--ink);color:#fff;font-size:13px;line-height:1.35;padding:7px 10px;border-radius:8px;white-space:nowrap;transform:translate(-50%,calc(-100% - 14px));opacity:0;transition:opacity .12s}
+#tip.on{opacity:1}
+
+.hud{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 28px;padding:16px 4px 0}
+.counters{display:flex;flex-wrap:wrap;gap:8px 24px;margin:0;padding:0;list-style:none}
+.counters li{display:flex;align-items:baseline;gap:8px;font-size:14px;color:var(--ink2)}
+.counters b{font-weight:600;font-size:17px;color:var(--ink);font-variant-numeric:tabular-nums;min-width:2ch}
+.counters i{width:9px;height:9px;border-radius:50%;display:inline-block;transform:translateY(-1px)}
+.actions{display:flex;gap:10px}
+.btn{appearance:none;border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:999px;padding:9px 18px;font-size:15px;font-weight:500;cursor:pointer;transition:transform .1s}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:rgba(19,33,58,.06)}
+#notice{margin:14px 4px 0;min-height:3.2em;font-size:15px;line-height:1.55;color:var(--ink2);max-width:80ch}
+#notice strong{color:var(--ink);font-weight:600}
+
+
+.stage{display:grid;grid-template-columns:minmax(0,1fr)}
+.stage.open{grid-template-columns:minmax(0,1fr) 340px}
+.canvas-wrap{position:relative;min-width:0}
+.panel{border-left:1px solid var(--line);background:rgba(247,249,251,.94);padding:18px 20px 8px;overflow:auto;height:clamp(420px,58vh,600px);font-size:14px}
+.panel h3{font:600 14px/1.3 var(--body);margin:0 0 10px;color:var(--ink)}
+.panel-sec{padding:0 0 14px;margin:0 0 14px;border-bottom:1px solid var(--line)}
+.panel-sec.last{border-bottom:0}
+.range{display:grid;grid-template-columns:1fr auto;gap:0 10px;margin:0 0 8px;color:var(--ink2)}
+.range output{color:var(--ink);font-variant-numeric:tabular-nums;font-weight:500}
+.range input{grid-column:1/3;width:100%;accent-color:var(--cobalt);margin:4px 0 0}
+.toggles{display:flex;flex-wrap:wrap;gap:6px}
+.tg{border:1px solid var(--line-strong);background:var(--paper);border-radius:999px;padding:5px 12px;font-size:13.5px;cursor:pointer;line-height:1.4}
+.tg:hover{border-color:var(--ink)}
+.tg[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.tg.fix:not(:disabled){border-color:var(--ok);color:var(--ok)}
+.tg:disabled{opacity:.45;cursor:default}
+.metric{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:0 10px;margin-bottom:9px}
+.metric span{color:var(--ink2);font-size:13px}
+.metric b{font-weight:600;font-variant-numeric:tabular-nums;font-size:14px}
+.metric canvas{grid-column:1/3;width:100%;height:28px;display:block;margin-top:3px}
+#log{list-style:none;margin:0 0 14px;padding:0;font-size:13px;color:var(--ink2)}
+#log li{padding:2px 0;line-height:1.45}
+#log time{font-variant-numeric:tabular-nums;color:var(--ink);margin-right:8px}
+.btn.small{padding:6px 14px;font-size:14px}
+@media (max-width:900px){.stage.open{grid-template-columns:minmax(0,1fr)}.panel{border-left:0;border-top:1px solid var(--line);height:auto}}
+
+/* sections */
+section.block{padding-top:120px}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:40px}
+h2{margin:0;font-family:var(--display);font-weight:700;font-size:clamp(40px,5.6vw,72px);line-height:.95;letter-spacing:-.03em;font-variation-settings:"wdth" 82,"opsz" 72}
+.sec-head p{margin:0;color:var(--ink2);max-width:52ch}
+
+/* trace */
+.trace{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:24px 28px 18px}
+.trace-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;font-size:14px;color:var(--ink2);margin-bottom:18px}
+.trace-top code{font-family:var(--mono);font-size:13.5px;color:var(--ink)}
+.legend{display:flex;gap:18px;flex-wrap:wrap}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend i{width:16px;height:7px;border-radius:4px;display:inline-block}
+.grid-row{display:grid;grid-template-columns:minmax(200px,280px) minmax(0,1fr) 128px;gap:18px;align-items:center}
+.axis{font-size:12.5px;color:var(--ink2);padding:0 0 8px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.axis-track{position:relative;height:18px}
+.axis-track span{position:absolute;transform:translateX(-50%)}
+.spans{list-style:none;margin:0;padding:0;position:relative}
+.span{border-bottom:1px solid var(--line)}
+.span:last-child{border-bottom:0}
+.span-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;padding:11px 0;display:grid;grid-template-columns:minmax(200px,280px) minmax(0,1fr) 128px;gap:18px;align-items:center}
+.span-row:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:6px}
+.span-row:hover .span-name{color:var(--cobalt)}
+.span-name{font-size:15.5px;font-weight:500;padding-left:calc(var(--d) * 20px);position:relative;display:flex;align-items:center;gap:8px}
+.span-name::before{content:"";width:7px;height:7px;border-right:1.5px solid var(--ink2);border-bottom:1.5px solid var(--ink2);transform:rotate(-45deg);transition:transform .18s;flex:none}
+.span-row[aria-expanded="true"] .span-name::before{transform:rotate(45deg) translate(-1px,-1px)}
+.span-row.leaf .span-name::before{border-color:transparent}
+.span-track{position:relative;height:14px}
+.span-bar{position:absolute;top:2px;height:10px;border-radius:5px;min-width:6px}
+.span-bar.live::after{content:"";position:absolute;right:-3px;top:-2px;width:14px;height:14px;border-radius:50%;background:inherit;opacity:.35;animation:breathe 2.4s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1.5);opacity:0}}
+@media (prefers-reduced-motion: reduce){.span-bar.live::after{animation:none}}
+.span-dur{font-size:13.5px;color:var(--ink2);text-align:right;font-variant-numeric:tabular-nums}
+.span-attrs{padding:0 0 18px calc(var(--d) * 20px + 15px)}
+.span-attrs dl{margin:0;display:grid;grid-template-columns:max-content minmax(0,1fr);gap:6px 22px;font-size:15px;max-width:780px}
+.span-attrs dt{color:var(--ink2)}
+.span-attrs dd{margin:0}
+.now-line{position:absolute;top:0;bottom:0;width:0;border-left:1.5px dashed rgba(42,84,245,.5);pointer-events:none}
+.now-line span{position:absolute;top:-22px;left:-14px;font-size:12px;color:var(--cobalt);font-weight:500}
+
+/* projects */
+.projects{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--ink)}
+.proj{border-bottom:1px solid var(--line-strong)}
+.proj-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr) 36px;gap:32px;align-items:baseline;padding:26px 0}
+.proj-row:focus-visible{outline:2px solid var(--cobalt);outline-offset:4px;border-radius:6px}
+.proj-row h3{margin:0;font-family:var(--display);font-weight:650;font-size:clamp(26px,3vw,36px);line-height:1.05;letter-spacing:-.02em;font-variation-settings:"wdth" 88,"opsz" 48;transition:color .15s}
+.proj-row:hover h3{color:var(--cobalt)}
+.proj-row p{margin:0;color:var(--ink2);font-size:16.5px}
+.plus{width:22px;height:22px;position:relative;justify-self:end;align-self:center}
+.plus::before,.plus::after{content:"";position:absolute;left:50%;top:50%;width:16px;height:1.75px;background:var(--ink);transform:translate(-50%,-50%);transition:transform .2s}
+.plus::after{transform:translate(-50%,-50%) rotate(90deg)}
+.proj-row[aria-expanded="true"] .plus::after{transform:translate(-50%,-50%) rotate(0)}
+.proj-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr) 36px;gap:32px;padding:0 0 32px}
+.proj-body .meta{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-size:13px;padding:3px 10px;border-radius:999px;border:1px solid var(--line-strong);color:var(--ink)}
+.proj-body ul{margin:0;padding-left:20px}
+.proj-body li{margin:0 0 8px;max-width:62ch}
+.code-link{font-size:15px;font-weight:500;text-underline-offset:4px;text-decoration-thickness:1.5px}
+.code-link:hover{color:var(--cobalt)}
+.proj.flash .proj-row h3{color:var(--cobalt)}
+
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:48px;align-items:start}
+form.req{display:grid;gap:14px}
+.field{display:grid;gap:5px}
+.field label{font-size:14px;color:var(--ink2)}
+.field input,.field textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1px solid var(--line-strong);border-radius:10px;padding:10px 12px;resize:vertical}
+.field input:focus,.field textarea:focus{outline:2px solid var(--cobalt);outline-offset:1px;border-color:transparent}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.req-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:4px}
+#copied{font-size:14px;color:var(--ok)}
+pre.http{margin:0;background:var(--ink);color:#DCE3F2;border-radius:18px;padding:24px 26px;font:400 14px/1.7 var(--mono);white-space:pre-wrap;word-break:break-word;min-height:100%}
+pre.http .m{color:#8FB0FF}
+pre.http .k{color:#9AA7C0}
+pre.http .s{color:#B8F0D2}
+pre.http .r{color:#B8F0D2}
+.elsewhere{margin:28px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:10px 28px;font-size:16px}
+.elsewhere a{text-underline-offset:4px;text-decoration-thickness:1.5px}
+.elsewhere a:hover{color:var(--cobalt)}
+.addr{font-size:15px;color:var(--ink2);margin:14px 0 0}
+
+footer{padding:110px 0 46px;color:var(--ink2);font-size:14.5px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+@media (max-width:900px){
+  .hero-head,.sec-head,.contact{grid-template-columns:1fr;gap:22px}
+  .intro{padding-bottom:0}
+  .proj-row,.proj-body{grid-template-columns:minmax(0,1fr) 28px;gap:10px 18px}
+  .proj-row p{grid-column:1/2;grid-row:2}
+  .proj-row .plus{grid-column:2;grid-row:1}
+  .proj-body .meta{order:2}
+  .proj-body{grid-template-columns:1fr}
+}
+@media (max-width:680px){
+  .wrap{padding:0 18px}
+  .top nav{gap:16px}
+  .top nav a:nth-child(n+3){display:none}
+  .axis-track .odd{display:none}
+  .actions{flex-wrap:wrap}
+  #sim{height:740px}
+  .stage-hint{left:auto;right:14px;top:12px;font-size:13px;max-width:19ch;text-align:right}
+  .trace{padding:18px 16px 10px}
+  .grid-row.axis{grid-template-columns:1fr}
+  .grid-row.axis > span:first-child,.grid-row.axis > span:last-child{display:none}
+  .span-row{grid-template-columns:minmax(0,1fr) auto;gap:6px 12px}
+  .span-track{grid-column:1/3;grid-row:2;margin-left:calc(var(--d) * 20px + 15px)}
+  .now-line{display:none}
+  .span-attrs dl{grid-template-columns:1fr;gap:0}
+  .span-attrs dd{margin-bottom:8px}
+  .pair{grid-template-columns:1fr}
+  section.block{padding-top:88px}
+}
+</style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="wrap top">
+  <a class="mark" href="#">Atul Kumar</a>
+  <nav aria-label="Sections">
+    <a href="#system">System</a>
+    <a href="#trace">Trace</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-    <header id="body-header">
-        <nav>
-
-            <ul class="horizontal-list text-center nav-menu">
-                <li>
-                    <a href="#" id="home-nav"> Home </a>
-                </li>
-                <li>
-                    <a  id="about-nav"> About </a>
-                </li>
-                <li>
-                    <a  id="skills-nav"> Skills </a>
-                </li>
-                <li>
-                    <a  id="experience-nav">Experience</a>
-                </li>
-                <li>
-                    <a  id="education-nav">Education</a>
-                </li>
-                <li>
-                    <a  id="portfolio-nav">Portfolio</a>
-                </li>
-                <li>
-                    <a  id="contact-nav">Contact</a>
-                </li>
-            </ul>
-
-            <div class="drop-down">
-    <i class="fas fa-bars fa"></i>
-    <div class="drop-down-list">
-        <div class="menu"><a href="#"> Home </a></div>
-        <div class="menu"><a href="#about"> About </a></div>
-        <div class="menu"><a href="#skills"> Skills </a></div>
-        <div class="menu"><a href="#experience">Experience</a></div>
-         <div class="menu"><a href="#education">Education</a></div>
-         <div class="menu"><a href="#portfolio">Portfolio</a></div>
-        <div class="menu"> <a href="#contact">Contact</a></div>
+<main id="main">
+  <section class="wrap" id="system" aria-labelledby="name">
+    <div class="hero-head">
+      <h1 class="name" id="name"><span>Atul</span><span>Kumar</span></h1>
+      <div class="intro">
+        <p class="lede">Backend engineer in Bengaluru. I build the parts of a system that have to stay calm under load: rate limiters, event pipelines, and gateways that keep an eye on the bill.</p>
+        <p>Three years of Java, Spring Boot, Kafka, Redis and AWS. Senior Software Engineer at Compro Technologies.</p>
+        <span class="status"><i aria-hidden="true"></i>Open to backend and SDE-2 roles</span>
+      </div>
     </div>
-   </div>
 
-        </nav>
-
-
-
-        <div id="name-social-container">
-            <div class="text-center">
-                <h1 id="my-name">ATUL KUMAR</h1>
-            </div>
-            <div>
-                <ul class="horizontal-list text-center social-icons">
-                    <li>
-                        <a href="https://www.linkedin.com/in/atulcse/">
-                            <i class="fab fa-linkedin-in fa-2x"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/the-evolver">
-                            <i class="fab fa-github-square fa-2x"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://codeforces.com/profile/the_evolver"> 
-                           <i class="fa-solid fa-bug"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://auth.geeksforgeeks.org/user/metooo/profile">
-                            <i class="fas fa-user-astronaut fa-2x"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://leetcode.com/recursive_coder/">
-                            <i class="fab fa-studiovinari fa-2x"></i>
-                        </a>
-                    </li>
-                </ul>
-
-            </div>
-
+    <div class="stage" id="stage">
+      <div class="canvas-wrap" id="cwrap">
+        <canvas id="sim" role="img" aria-label="A live simulation of a backend system. Requests travel through an API gateway, a token-bucket rate limiter, a three-partition Kafka log read by a consumer group of three services, and a datastore behind a circuit breaker. Throttled requests return 429, failing messages retry with backoff and land in a dead-letter queue."></canvas>
+        <p class="stage-hint">This system is running. Click anywhere to send it a request. Click a component to see the project behind it.</p>
+        <div id="tip" role="presentation"></div>
+      </div>
+      <aside class="panel" id="panel" aria-label="Control room" hidden>
+        <div class="panel-sec">
+          <h3>Traffic</h3>
+          <label class="range"><span>Background traffic</span><output id="o-traffic"></output><input type="range" id="r-traffic" min="0" max="8" step="0.1"></label>
+          <label class="range"><span>Bucket size</span><output id="o-cap"></output><input type="range" id="r-cap" min="1" max="20" step="1"></label>
+          <label class="range"><span>Refill rate</span><output id="o-refill"></output><input type="range" id="r-refill" min="0.5" max="10" step="0.1"></label>
         </div>
-
-    </header>
-    <main>
-
-        <section id="about">
-            <div id="my-image">
-                <img src="https://ninjasfiles.s3.amazonaws.com/asset_0000000000000020_1549743985_macbook_mouse.jpg">
-            </div>
-
-            <div id="about-para">
-
-                <p>   I am pursuing  Bachelor of Technology in Computer Science from JK Institute of Applied Physics and Technology, UoA, Prayagraj, India.
-                 I am proficient in programming languages such as <span class="text-highlight" >Java, C++ ,JavaScript</span>. I love  Programming ,working in a team is my strength.
-
-                </p>
-
-            </div>
-
-        </section>
-
-
-
-        <section id="skills">
-
-            <div class="section-header">
-
-                <h1 class="header"> <i class="fas fa-user-graduate"></i>SKILLS</h1>
-                
-            </div>
-
- <div id="skill-main">
-
-
-     <div id="skill-main-div"> <div class="percent-indicator" id="cplus-skill" data-bar="77">  <span class="skill-name"> 
-        Core Java 
-     </span> 
-     </div>
-    </div>
-    <div id="skill-main-div"> <div class="percent-indicator" id="ds-skill" data-bar="70">  <span class="skill-name"> 
-        Hibernate 
-     </span> 
-     </div>
-    </div>
-
-     <div id="skill-main-div"> <div class="percent-indicator" id="html-skill" data-bar="65">  <span class="skill-name"> 
-        Spring 
-     </span> 
-    </div>         
-    </div>
-
-    <div id="skill-main-div"> <div class="percent-indicator " id="css-skill" data-bar="75">  <span class="skill-name"> 
-        C++ 
-     </span> 
-    </div>         
-    </div>
-
-     <div id="skill-main-div"> <div class="percent-indicator" id="js-skill" data-bar="80">  <span class="skill-name"> 
-        HTML
-     </span> 
-    </div>         
-    </div>
-     
-     <div id="skill-main-div"> <div class="percent-indicator" id="nodejs-skill" data-bar="70">  <span class="skill-name"> 
-        CSS
-     </span> 
-    </div>         
-    </div>
-
-     <div id="skill-main-div"> <div class="percent-indicator" id="cp-skill" data-bar="60">  <span class="skill-name"> 
-        Javascript
-     </span> 
-    </div>         
-    </div>
-
-
+        <div class="panel-sec">
+          <h3>Break things</h3>
+          <div class="toggles">
+            <button class="tg" type="button" data-svc="rides" aria-pressed="false">Stop rides</button>
+            <button class="tg" type="button" data-svc="notify" aria-pressed="false">Stop notify</button>
+            <button class="tg" type="button" data-svc="links" aria-pressed="false">Stop links</button>
+            <button class="tg" type="button" id="t-db" aria-pressed="false">Take the database down</button>
+            <button class="tg fix" type="button" id="t-replay" disabled>Replay dead letters</button>
+          </div>
         </div>
+        <div class="panel-sec">
+          <h3>Live metrics, last 60 seconds</h3>
+          <div class="metric"><span>Responses per second</span><b id="m-rps">0</b><canvas id="s-rps" aria-hidden="true"></canvas></div>
+          <div class="metric"><span>p99 round trip</span><b id="m-p99">none yet</b><canvas id="s-p99" aria-hidden="true"></canvas></div>
+          <div class="metric"><span>Consumer lag, messages</span><b id="m-lag">0</b><canvas id="s-lag" aria-hidden="true"></canvas></div>
+          <div class="metric"><span>Rejected per second (429 and 503)</span><b id="m-thr">0</b><canvas id="s-thr" aria-hidden="true"></canvas></div>
+        </div>
+        <div class="panel-sec last">
+          <h3>Event log</h3>
+          <ol id="log"><li>Nothing has happened yet.</li></ol>
+          <button class="btn ghost small" type="button" id="b-reset">Reset the system</button>
+        </div>
+      </aside>
+    </div>
+    <div class="hud">
+      <ul class="counters" aria-label="Simulation counters">
+        <li><i style="background:var(--cobalt)"></i><b id="c-sent">0</b>sent</li>
+        <li><i style="background:var(--ok)"></i><b id="c-ok">0</b>200 OK</li>
+        <li><i style="background:var(--amber)"></i><b id="c-429">0</b>429 throttled</li>
+        <li><i style="background:#7A4FD0"></i><b id="c-503">0</b>503 shed</li>
+        <li><i style="background:var(--red)"></i><b id="c-retry">0</b>retried</li>
+        <li><i style="background:var(--red);opacity:.45"></i><b id="c-dlq">0</b>in dead letters</li>
+      </ul>
+      <div class="actions">
+        <button class="btn ghost" id="b-one" type="button">Send a request</button>
+        <button class="btn ghost" id="b-burst" type="button">Send a burst of 12</button>
+        <button class="btn" id="b-panel" type="button" aria-expanded="false" aria-controls="panel">Open the control room</button>
+      </div>
+    </div>
+    <p id="notice" aria-live="polite">Every dot is a request. Each one takes a token from the rate limiter, waits its turn in a Kafka partition, gets processed, and comes back as a 200.</p>
+  </section>
 
-        </section>
+  <section class="wrap block" id="trace" aria-labelledby="trace-h">
+    <div class="sec-head">
+      <h2 id="trace-h">Ten years, traced like a request</h2>
+      <p>Each span is a stretch of time, laid out the way a tracing tool shows one request moving through services. Open a span to read its attributes.</p>
+    </div>
+    <div class="trace">
+      <div class="trace-top">
+        <span><code>GET /atul-kumar</code> &nbsp;still running</span>
+        <span class="legend" aria-label="Legend">
+          <span><i style="background:var(--cobalt)"></i>Education</span>
+          <span><i style="background:var(--ink)"></i>Work</span>
+          <span><i style="background:var(--ok)"></i>Competitive programming</span>
+        </span>
+      </div>
+      <div class="grid-row axis" aria-hidden="true"><span></span><div class="axis-track" id="axis"></div><span></span></div>
+      <ul class="spans" id="spans"></ul>
+    </div>
+  </section>
 
-        <section id="experience">
-            <div class="section-header">
-                <h1 class="header">
-                   <i class="fas fa-user-tie"></i>
-                Course Experience
-                </h1>
-            </div>
-            
-            <div id="timeline">
-               <div class="timeline-box">
-                     <div class="timeline-box-header">
-                      <span>  <img src="https://udacity-email.s3-us-west-2.amazonaws.com/Bertelsmann+Badge+Phase+1_12.1.2020.jpg?bsft_eid=c0748284-13bf-40d2-accb-cc4d0bc4a1d5&bsft_aaid=affd8710-61ff-4001-baca-1d4a7303381d&utm_campaign=sch_600_2020-12-01_ndxxx_bertelsmann-winner_global&utm_source=blueshift&utm_medium=email&utm_content=sch_600_2020-12-01_ndxxx_bertelsmann-winner_global&bsft_clkid=9a6b4eac-4d5d-4b91-9a4d-fac41bf64afd&bsft_uid=97fec747-a28f-44c5-a0e7-781e2aed8f68&bsft_mid=274c41f7-1f07-4dde-a7b1-bc72b91dfcef&bsft_link_id=23&bsft_mime_type=html&bsft_ek=2020-12-01T14%3A11%3A17Z&bsft_lx=5&bsft_tv=12"></span>
-                      <span>UDACITY</span>
-                      <span>Student</span>
-                      <span>Dec20-Mar21</span>
-                    </div>
+  <section class="wrap block" id="projects" aria-labelledby="proj-h">
+    <div class="sec-head">
+      <h2 id="proj-h">Things I've built</h2>
+      <p>Side projects built with production habits: atomic limits, idempotent consumers, retries with backoff, and a hard ceiling on spend.</p>
+    </div>
+    <ul class="projects" id="proj-list"></ul>
+  </section>
 
-                    <div class="timeline-box-main">
-                        <h6>Data structure</h6>
-                         <ul>
-                          <li>Array</li>  
-                          <li>Linklist</li> 
-                          <li>Vector</li> 
-                          <li>Stack</li>  
-                          <li>Queue</li>  
-                          <li>Tree</li> 
-                          <li>Graph</li>
+  <section class="wrap block" id="contact" aria-labelledby="contact-h">
+    <div class="sec-head">
+      <h2 id="contact-h">Send me a request</h2>
+      <p>Hiring for a backend role, or want to talk about rate limiting and queues? Fill this in and it becomes an email to me.</p>
+    </div>
+    <div class="contact">
+      <div>
+        <form class="req" id="req" novalidate>
+          <div class="pair">
+            <div class="field"><label for="f-name">Your name</label><input id="f-name" autocomplete="name"></div>
+            <div class="field"><label for="f-co">Company</label><input id="f-co" autocomplete="organization"></div>
+          </div>
+          <div class="field"><label for="f-role">Role</label><input id="f-role" placeholder="Backend Engineer, SDE-2"></div>
+          <div class="field"><label for="f-note">Message</label><textarea id="f-note" rows="4"></textarea></div>
+          <div class="req-actions">
+            <a class="btn" id="mailto" href="mailto:contacts.atulsharma@gmail.com">Open email draft</a>
+            <button class="btn ghost" id="copy" type="button">Copy email address</button>
+            <span id="copied" aria-live="polite"></span>
+          </div>
+        </form>
+        <p class="addr">Or write directly to contacts.atulsharma@gmail.com</p>
+        <ul class="elsewhere">
+          <li><a href="https://www.linkedin.com/in/atulcse" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/the-evolver" rel="noopener">GitHub</a></li>
+          <li><a href="https://leetcode.com/u/recursive_coder" rel="noopener">LeetCode</a></li>
+        </ul>
+      </div>
+      <pre class="http" id="http" aria-label="Preview of your request"></pre>
+    </div>
+  </section>
+</main>
 
-                        </ul>
-                    </div>
-                    
-                </div>
+<footer class="wrap">
+  <span>Atul Kumar, Bengaluru</span>
+  <span>Hand-built as one HTML file with no framework. The diagram is a small discrete-event simulation: Poisson arrivals, a token bucket, a Kafka consumer group with rebalancing, a circuit breaker and a dead-letter queue.</span>
+</footer>
 
+<script>
+(() => {
+"use strict";
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-                 <div class="timeline-box">
-                    
-                  <div class="timeline-box-header">
-                      <span>  <img src="https://udacity-email.s3-us-west-2.amazonaws.com/Bertelsmann+Badge+Phase+1_12.1.2020.jpg?bsft_eid=c0748284-13bf-40d2-accb-cc4d0bc4a1d5&bsft_aaid=affd8710-61ff-4001-baca-1d4a7303381d&utm_campaign=sch_600_2020-12-01_ndxxx_bertelsmann-winner_global&utm_source=blueshift&utm_medium=email&utm_content=sch_600_2020-12-01_ndxxx_bertelsmann-winner_global&bsft_clkid=9a6b4eac-4d5d-4b91-9a4d-fac41bf64afd&bsft_uid=97fec747-a28f-44c5-a0e7-781e2aed8f68&bsft_mid=274c41f7-1f07-4dde-a7b1-bc72b91dfcef&bsft_link_id=23&bsft_mime_type=html&bsft_ek=2020-12-01T14%3A11%3A17Z&bsft_lx=5&bsft_tv=12"></span>
-                      <span>UDACITY</span>
-                      <span>Student</span>
-                      <span>June21-June21</span>
-                    </div>
+/* ---------- projects data (shared by the sim and the list) ---------- */
+const PROJECTS = [
+  {id:"llm-gateway", name:"LLM Gateway",
+   line:"A Spring Boot gateway in front of AWS Bedrock that stops spending before the bill gets out of hand.",
+   how:["Reserves the estimated cost of each call in Redis before it goes out, then reconciles against actual usage when the response comes back.",
+        "A CloudWatch alarm triggers SNS and a Lambda responder, which attaches an IAM deny policy once the budget is spent.",
+        "Routes to both the bedrock-runtime endpoint and the OpenAI-compatible Mantle endpoint."],
+   stack:["Java","Spring Boot","AWS Bedrock","Redis","CloudWatch","Lambda","SNS","IAM"],
+   link:"https://github.com/the-evolver", linkText:"See my GitHub"},
+  {id:"rate-limiter", name:"Distributed rate limiter",
+   line:"One token bucket shared by every instance of a service, so a limit holds no matter which machine takes the request.",
+   how:["Each check-and-take runs as a Redis Lua script, so it is atomic across all instances.",
+        "A Spring AOP annotation puts a limit on any endpoint without touching its code.",
+        "Resilience4j adds fault tolerance around the calls to Redis."],
+   stack:["Java","Spring Boot","Redis","Lua","Spring AOP","Resilience4j"],
+   link:"https://github.com/the-evolver/Distributed-rate-limiter-service", linkText:"Read the code"},
+  {id:"notification-engine", name:"Notification engine",
+   line:"A Kafka pipeline that sends every notification exactly once, urgent ones first.",
+   how:["Separate priority topics, so urgent messages never wait behind bulk ones.",
+        "Idempotent consumers, so a redelivered message is never sent twice.",
+        "Failures retry with exponential backoff, and messages that keep failing move to a dead-letter queue."],
+   stack:["Java","Spring Boot","Kafka","Redis"],
+   link:"https://github.com/the-evolver/notification-engine", linkText:"Read the code"},
+  {id:"ride-sharing", name:"Ride-sharing backend",
+   line:"The core of an Uber-style app: find nearby drivers, match each rider to one driver, stream the trip live.",
+   how:["Redis GEO answers which drivers are near a rider.",
+        "Distributed locking makes sure a driver is never matched to two riders at once.",
+        "Trip events flow through Kafka, and WebSockets push live locations to the app.",
+        "Comes with a dark ops-room dashboard for watching the fleet."],
+   stack:["Java","Spring Boot","PostgreSQL","Redis GEO","Kafka","WebSockets"],
+   link:"https://github.com/the-evolver", linkText:"See my GitHub"},
+  {id:"url-shortener", name:"URL shortener in Go",
+   line:"Short links with base62 codes, a cache in front, and click analytics handled off the redirect path.",
+   how:["Base62 codes stored in Postgres, with Redis caching hot links.",
+        "A token bucket rate limiter protects link creation.",
+        "A worker pool processes click analytics."],
+   stack:["Go","Redis","PostgreSQL"],
+   link:"https://github.com/the-evolver", linkText:"See my GitHub"},
+  {id:"sheets-connector", name:"Google Sheets connector for Claude",
+   line:"Lets Claude work with a person's Google Sheets through their own Google sign-in.",
+   how:["OAuth2 sign-in with Google, with tokens stored in Redis.",
+        "Built as a Java Spring Boot service."],
+   stack:["Java","Spring Boot","OAuth2","Redis"],
+   link:"https://github.com/the-evolver", linkText:"See my GitHub"}
+];
 
-                    <div class="timeline-box-main">
-                        <h6>Java Programming </h6>
-                         <ul>
-		          
-                          <li>Oops </li> 
-			  <li>Exception Handling </li> 	 
-                          <li>Collection </li>  
-			  <li>Multithreading </li> 	 
-                            
-                            
-                        </ul>
-                    </div>
+/* ---------- project list ---------- */
+const plist = document.getElementById("proj-list");
+PROJECTS.forEach((p, i) => {
+  const li = document.createElement("li");
+  li.className = "proj"; li.id = "p-" + p.id;
+  li.innerHTML = `
+    <button class="proj-row" aria-expanded="false" aria-controls="pb-${p.id}">
+      <h3>${p.name}</h3><p>${p.line}</p><span class="plus" aria-hidden="true"></span>
+    </button>
+    <div class="proj-body" id="pb-${p.id}" hidden>
+      <div class="meta">
+        <div class="chips">${p.stack.map(s=>`<span>${s}</span>`).join("")}</div>
+        <a class="code-link" href="${p.link}" rel="noopener">${p.linkText}</a>
+      </div>
+      <ul>${p.how.map(h=>`<li>${h}</li>`).join("")}</ul>
+    </div>`;
+  plist.appendChild(li);
+  const btn = li.querySelector(".proj-row"), body = li.querySelector(".proj-body");
+  btn.addEventListener("click", () => setOpen(btn, body, btn.getAttribute("aria-expanded") !== "true"));
+  if (i === 0) setOpen(btn, body, true);
+});
+function setOpen(btn, body, open){ btn.setAttribute("aria-expanded", open); body.hidden = !open; }
+function openProject(id){
+  const li = document.getElementById("p-" + id); if(!li) return;
+  setOpen(li.querySelector(".proj-row"), li.querySelector(".proj-body"), true);
+  li.scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "center"});
+  li.classList.add("flash"); setTimeout(()=>li.classList.remove("flash"), 1600);
+  li.querySelector(".proj-row").focus({preventScroll:true});
+}
 
-                </div>
+/* ---------- trace ---------- */
+const NOW = 2026 + 312/365, T0 = 2016, T1 = 2027.2;
+const SPANS = [
+  {name:"Atul Kumar", d:0, s:2016.25, e:NOW, kind:"root", attrs:[
+    ["based in","Bengaluru, India"],["role","Senior Software Engineer, backend"],["looking for","Backend and SDE-2 roles, in Bengaluru or remote"]]},
+  {name:"School", d:1, s:2016.25, e:2018.4, kind:"edu", attrs:[["class 12 (2018)","83%"],["class 10 (2016)","CGPA 10 out of 10"]]},
+  {name:"JEE preparation, Kota", d:1, s:2018.45, e:2019.45, kind:"edu", attrs:[
+    ["where","Nucleus coaching, Kota"],["result","All-India rank went from about 1,65,000 to about 40,000 in roughly three months"]]},
+  {name:"B.Tech, Computer Science", d:1, s:2019.6, e:2023.45, kind:"edu", attrs:[
+    ["institute","JK Institute of Applied Physics and Technology, University of Allahabad"],["CGPA","9.2"]]},
+  {name:"Competitive programming", d:1, s:2019.75, e:NOW, kind:"cp", attrs:[
+    ["solved","1,000+ problems, 336 of them hard"],["LeetCode","Top 11%, and global rank 51 in Weekly Contest 472"],["CodeChef","AIR 6"],["handle","recursive_coder"]]},
+  {name:"Compro Technologies", d:1, s:2023.5, e:NOW, kind:"work", open:true, attrs:[
+    ["led","The DynamoDB migration, end to end"],["mentored","Three junior engineers through onboarding"],["owns","Root-cause analysis of production issues"],
+    ["works with","PMs and QA every day; presents designs and runs knowledge-sharing sessions"],["stack","Java 8 and 17, Spring Boot, Kafka, Redis, MySQL, AWS"]]},
+  {name:"Associate Software Engineer", d:2, s:2023.5, e:2024.5, kind:"work", attrs:[["from","July 2023"]]},
+  {name:"Software Engineer", d:2, s:2024.5, e:2026.42, kind:"work", attrs:[["from","July 2024"]]},
+  {name:"Senior Software Engineer", d:2, s:2026.42, e:NOW, kind:"work", attrs:[["from","June 2026, promoted to senior backend engineer"]]}
+];
+const KCOL = {root:"rgba(19,33,58,.22)", edu:"var(--cobalt)", work:"var(--ink)", cp:"var(--ok)"};
+const pct = y => ((y - T0) / (T1 - T0) * 100);
+const axis = document.getElementById("axis");
+for (let y = 2016; y <= 2026; y++){
+  const s = document.createElement("span"); s.style.left = pct(y) + "%"; s.textContent = y;
+  if ((y - 2016) % 2) s.className = "odd";
+  axis.appendChild(s);
+}
+function dur(s, e){ const m = Math.round((e - s) * 12); const y = Math.floor(m / 12), mo = m % 12;
+  return (y ? y + " yr" : "") + (y && mo ? " " : "") + (mo ? mo + " mo" : (y ? "" : "1 mo")); }
+const ul = document.getElementById("spans");
+SPANS.forEach((sp, i) => {
+  const li = document.createElement("li"); li.className = "span"; li.style.setProperty("--d", sp.d);
+  const live = sp.e === NOW;
+  const has = sp.attrs && sp.attrs.length;
+  li.innerHTML = `
+    <button class="span-row${has ? "" : " leaf"}" aria-expanded="false" ${has ? `aria-controls="sa-${i}"` : ""}>
+      <span class="span-name">${sp.name}</span>
+      <span class="span-track"><span class="span-bar${live ? " live" : ""}" style="left:${pct(sp.s)}%;width:${pct(sp.e) - pct(sp.s)}%;background:${KCOL[sp.kind]}"></span></span>
+      <span class="span-dur">${live ? dur(sp.s, sp.e) + ", ongoing" : dur(sp.s, sp.e)}</span>
+    </button>
+    ${has ? `<div class="span-attrs" id="sa-${i}" hidden><dl>${sp.attrs.map(a=>`<dt>${a[0]}</dt><dd>${a[1]}</dd>`).join("")}</dl></div>` : ""}`;
+  ul.appendChild(li);
+  if (has){
+    const b = li.querySelector(".span-row"), body = li.querySelector(".span-attrs");
+    b.addEventListener("click", () => setOpen(b, body, b.getAttribute("aria-expanded") !== "true"));
+    if (sp.open) setOpen(b, body, true);
+  }
+});
+// "now" line, positioned over the track column
+function placeNow(){
+  let nl = document.querySelector(".now-line");
+  const track = ul.querySelector(".span-track"); if(!track) return;
+  if(!nl){ nl = document.createElement("div"); nl.className = "now-line"; nl.innerHTML = "<span>now</span>"; ul.appendChild(nl); }
+  const ur = ul.getBoundingClientRect(), tr = track.getBoundingClientRect();
+  nl.style.left = (tr.left - ur.left + tr.width * pct(NOW) / 100) + "px";
+}
+placeNow(); new ResizeObserver(placeNow).observe(ul); if (document.fonts) document.fonts.ready.then(placeNow);
 
+/* ---------- contact ---------- */
+const EMAIL = "contacts.atulsharma@gmail.com";
+const f = id => document.getElementById(id);
+const esc = s => s.replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+function renderReq(){
+  const name = f("f-name").value.trim(), co = f("f-co").value.trim(), role = f("f-role").value.trim(), note = f("f-note").value.trim();
+  const body = JSON.stringify({from: name || "you", company: co || "your company", role: role || "a backend role", message: note || "Let's talk."}, null, 2);
+  f("http").innerHTML =
+`<span class="m">POST</span> /hire HTTP/1.1
+<span class="k">Host:</span> the-evolver.github.io
+<span class="k">To:</span> ${EMAIL}
+<span class="k">Content-Type:</span> application/json
+<span class="k">Idempotency-Key:</span> ${(name+co+role).length ? hash(name+co+role) : "pending"}
 
-                
-                <div class="timeline-box">
-                    <div class="timeline-box-header">
-                      <span>  <img src="https://udacity-email.s3-us-west-2.amazonaws.com/SUSE+Scholarship+badge.png?bsft_aaid=affd8710-61ff-4001-baca-1d4a7303381d&bsft_eid=02c4a236-2164-461d-ab1a-8c4660033b44&utm_campaign=sch_600_2021-06-03_ndxxx_suse-winner_p1_global&utm_source=blueshift&utm_medium=email&utm_content=sch_600_2021-06-03_ndxxx_suse-winner_p1_global&bsft_clkid=07f415a4-d4a3-4925-b932-29c8cf555d14&bsft_uid=97fec747-a28f-44c5-a0e7-781e2aed8f68&bsft_mid=b3dd7934-1f5d-4548-a185-bee01d92805e&bsft_mime_type=html&bsft_ek=2021-06-03T16%3A32%3A30Z&bsft_lx=5&bsft_tv=4"></span>
-                      <span>UDACITY</span>
-                      <span>Student</span>
-                      <span>June21-Aug21</span>
-                    </div>
+<span class="s">${esc(body)}</span>
 
-                    <div class="timeline-box-main">
-                        <h6>Web Dev</h6>
-                         <ul>
-                          <li>Html</li>  
-                          <li>Css</li>  
-                          <li>Js</li>  
-                          <li>Nodejs</li>  
-                          <li>Backend</li>
-                          <!-- <li><a href="https://ninjasfiles.s3.amazonaws.com/certificate1151912615f1bac9d3e5ad412a50dea9f98a6d1.pdf">Certificate</a></li> -->  
-                        </ul>
+<span class="k"># expected response</span>
+<span class="r">HTTP/1.1 202 Accepted</span>`;
+  const subject = role ? `${role}${co ? " at " + co : ""}` : `Hello from ${co || name || "your portfolio"}`;
+  const text = `${note || "Hi Atul,"}\n\n${name ? name : ""}${co ? (name ? ", " : "") + co : ""}`;
+  f("mailto").href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text.trim())}`;
+}
+function hash(s){ let h = 2166136261; for (const c of s){ h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return (h >>> 0).toString(16).padStart(8, "0"); }
+["f-name","f-co","f-role","f-note"].forEach(id => f(id).addEventListener("input", renderReq));
+f("req").addEventListener("submit", e => e.preventDefault());
+f("copy").addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(EMAIL); f("copied").textContent = "Copied"; }
+  catch { f("copied").textContent = EMAIL; }
+  setTimeout(() => f("copied").textContent = "", 2400);
+});
+renderReq();
 
-                    </div>
-                    
-                </div>
-                
-               
-                
-                
-                
-                <div id="timeline-indicator">
-                    <div id="mark-dot1">
-            <i class="fas fa-circle fa-xs"></i> 
-                    </div>
-                    <i class="fas fa-plane"></i>
-             
-                          <div id="mark-dot2">
-            <i class="fas fa-circle fa-xs"></i> 
-                    </div>
-                    <div id="mark-dot3">
-            <i class="fas fa-circle fa-xs"></i> 
-                    </div>
-                    <div id="mark-dot4">
-            <i class="fas fa-circle fa-xs"></i> 
+/* ---------- live system simulation ---------- */
+const cv = document.getElementById("sim"), ctx = cv.getContext("2d"), tip = document.getElementById("tip");
+const COL = {ink:"#13213A", ink2:"#4A5872", cobalt:"#2A54F5", ok:"#0E9466", amber:"#E39A0B", amberText:"#8A5900", red:"#D63A40", violet:"#7A4FD0", paper:"#F7F9FB", fog:"#E8ECF0"};
+const DEF = {
+  gateway:{x:.25, y:.5,  label:"API gateway",   kind:"gate",   project:"llm-gateway",         tip:"API gateway: open the LLM Gateway project"},
+  limiter:{x:.40, y:.5,  label:"Rate limiter",  kind:"bucket", project:"rate-limiter",        tip:"Token bucket: open the rate limiter project"},
+  kafka:  {x:.57, y:.5,  label:"Kafka, 3 partitions", kind:"log", project:"notification-engine", tip:"Kafka log: open the notification engine"},
+  rides:  {x:.745,y:.2,  label:"rides",         kind:"svc",    project:"ride-sharing",        tip:"rides: open the ride-sharing backend"},
+  notify: {x:.745,y:.5,  label:"notify",        kind:"svc",    project:"notification-engine", tip:"notify: open the notification engine"},
+  links:  {x:.745,y:.8,  label:"links",         kind:"svc",    project:"url-shortener",       tip:"links: open the URL shortener"},
+  store:  {x:.905,y:.5,  label:"Redis + Postgres", kind:"db",  project:"url-shortener",       tip:"Datastore: open the URL shortener"},
+  dlq:    {x:.57, y:.86, label:"Dead letters",  kind:"dlq",    project:"notification-engine", tip:"Dead-letter queue: open the notification engine"}
+};
+const CIDS = ["rides","notify","links"];
+const POLL = .36, SHED = 160, REBALANCE_S = 1.2, BREAKER_OPEN_S = 3, DB_TIMEOUT_S = .45, MAX_ATTEMPTS = 3;
+const DEFAULTS = {traffic: reduce ? 0 : 1.1, cap: 6, refill: 1.6};
+const cfg = Object.assign({}, DEFAULTS);
+const N = {};
+let W = 0, H = 0, S = 1, vertical = false;
+let rand = Math.random;
+function seed(a){ a = a >>> 0; rand = () => { a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
 
-                    
-                    
-                    
-                </div>
-                
-            </div>
+let simT, tokens, bucketPulse, parts, rings, labels, lanes, dlqMsgs, stats, consumers, assign, rebalancing, rebalanceAt,
+    db, breaker, ambT, latencies, okTimes, rejTimes, series, sampleT, events;
+let seen429 = false, seenDLQ = false, seen503 = false, paused = false, hover = null;
+function resetState(){
+  simT = 0; tokens = cfg.cap; bucketPulse = 0;
+  parts = []; rings = []; labels = []; lanes = [[],[],[]]; dlqMsgs = [];
+  stats = {sent:0, ok:0, t429:0, t503:0, retry:0, dlqTotal:0};
+  consumers = {}; CIDS.forEach(id => consumers[id] = {alive:true, timer:0, rr:0});
+  assign = CIDS.slice(); rebalancing = false; rebalanceAt = 0;
+  db = {up:true}; breaker = {state:"closed", win:[], openedAt:0, probe:false};
+  ambT = .6; latencies = []; okTimes = []; rejTimes = []; sampleT = 0;
+  series = {rps:[], p99:[], lag:[], thr:[]}; events = [];
+}
+resetState();
 
-        </section>
+/* geometry */
+function layout(){
+  const r = cv.getBoundingClientRect(); if (!r.width || !r.height) return false;
+  W = r.width; H = r.height;
+  const dpr = Math.min(2, devicePixelRatio || 1);
+  cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  vertical = W < 620;
+  S = Math.max(.78, Math.min(1.4, (vertical ? W / 400 : Math.min(W / 880, H / 470))));
+  for (const k in DEF){
+    const d = DEF[k];
+    let fx = vertical ? d.y : d.x, fy = vertical ? d.x : d.y;
+    if (vertical){ fy = .17 + (fy - .25) * (.71 / .655); if (k === "dlq"){ fx = .83; fy = .44; } }
+    N[k] = Object.assign(N[k] || {}, d, {id:k, x:fx * W, y:fy * H});
+  }
+  return true;
+}
+function kGeom(){ return {len:(vertical ? 92 : 128) * S, cross:58 * S}; }
+function lanePoint(lane, along){ const g = kGeom(), k = N.kafka, off = (lane - 1) * g.cross / 3;
+  return vertical ? {x:k.x + off, y:k.y + along} : {x:k.x + along, y:k.y + off}; }
 
-        <section id="education">
-           <div class="section-header">
-                <h1 class="header">
-                    <i class="fas fa-user-graduate"></i>
-                Education
-                </h1>
-            </div>
-            
-            <div id="timeline">
-                <div class="timeline-box">
-                    <div class="timeline-box-header">
-                      <span><img src="https://i.postimg.cc/mDj3jq2M/pcs-logo.png"></span>
-                      <span> Matriculation </span>
-                      <span>Aspcs</span>
-                      <span>2006-2016</span>
-                    </div>
+/* particle mechanics */
+function mk(x, y, user){ return {x, y, ox:x, oy:y, hist:[], color:COL.cobalt, attempt:0, poison:rand() < .07, user:!!user, a:1, born:simT, done:false, lane:0, owner:null, stage:"new", mode:"idle"}; }
+function moveTo(p, tx, ty, speed, cb, cx, cy){
+  p.fx = p.x; p.fy = p.y; p.tx = tx; p.ty = ty; p.cx = cx; p.cy = cy; p.t = 0;
+  const d = Math.hypot(tx - p.x, ty - p.y) * (cx != null ? 1.3 : 1);
+  p.dur = Math.max(.14, d / (speed * S)); p.cb = cb; p.mode = "move"; p.at = null;
+}
+function wait(p, sec, cb, at){ p.mode = "wait"; p.w = sec; p.cb = cb; p.at = at || null; p.ang = rand() * 6.28; }
+function enqueue(p, front){ p.mode = "queued"; p.stage = "queued"; p.owner = null; if (front) lanes[p.lane].unshift(p); else lanes[p.lane].push(p); }
+function fade(p){ p.mode = "fade"; p.cb = null; }
+function label(x, y, text, color){
+  for (const l of labels) if (l.text === text && l.life > .35 && Math.abs(l.x - x) < 40 * S && Math.abs(l.y - y) < 30 * S){ l.life = 1; l.count = (l.count || 1) + 1; return; }
+  if (labels.length < 40) labels.push({x, y, text, color, life:1, count:1});
+}
+function nodeLabel(n, text, color){
+  const y = n.y - (n.kind === "db" ? 44 : n.kind === "bucket" ? 46 : 34) * S;
+  for (const l of labels) if (l.key === n.id){ if (l.text === text && l.life > .35) l.count++; else { l.text = text; l.count = 1; } l.color = color; l.life = 1; l.y = y; return; }
+  labels.push({key:n.id, x:n.x, y, text, color, life:1, count:1});
+}
+function inflight(){ let n = 0; for (const p of parts) if (!p.done) n++; return n; }
+function finish(p, key){ p.done = true; stats[key]++; if (key === "t429" || key === "t503") rejTimes.push(simT); }
 
-                    <div class="timeline-box-main">
-                         <h6>10th board</h6>
-                         <ul>
-                          <li> 10 cgpa </li> 
-                        </ul>
-                    </div>
-                    
-                </div>
-                
-                <div class="timeline-box">
-                     <div class="timeline-box-header">
-                      <span>  <img src="https://i.postimg.cc/wjwj2zkt/shivam-logo.png"></span>
-                      <span>Senior-secondary</span>
-                      <span>Satyam international</span>
-                      <span>2016-2018</span>
-                    </div>
+function spawn(ox, oy, user){
+  const p = mk(ox, oy, user);
+  parts.push(p); rings.push({x:ox, y:oy, life:1, user:!!user}); stats.sent++;
+  p.stage = "toGateway";
+  moveTo(p, N.gateway.x, N.gateway.y, 380, () => atGateway(p));
+  hud();
+}
+function atGateway(p){
+  if (inflight() > SHED){
+    finish(p, "t503"); p.color = COL.violet; label(p.x, p.y - 30 * S, "503", COL.violet);
+    moveTo(p, p.ox, p.oy, 320, () => fade(p)); hud();
+    if (p.user && !seen503){ seen503 = true; say(`<strong>503 Service Unavailable.</strong> Too much work is already in flight, so the gateway sheds load at the front door instead of letting every request get slow. Clear the backlog and it starts accepting again.`, true); }
+    return;
+  }
+  p.stage = "toLimiter";
+  moveTo(p, N.limiter.x, N.limiter.y, 280, () => atLimiter(p));
+}
+function atLimiter(p){
+  if (tokens >= 1){
+    tokens -= 1; bucketPulse = 1;
+    p.lane = Math.floor(rand() * 3); p.stage = "toKafka";
+    const e = lanePoint(p.lane, -kGeom().len / 2);
+    moveTo(p, e.x, e.y, 280, () => enqueue(p, false));
+  } else {
+    finish(p, "t429"); p.color = COL.amber;
+    nodeLabel(N.limiter, "429", COL.amber);
+    moveTo(p, p.ox, p.oy, 320, () => fade(p));
+    if (p.user && !seen429){ seen429 = true;
+      say(`<strong>429 Too Many Requests.</strong> That was the rate limiter. It's a token bucket holding ${cfg.cap} tokens that refills ${cfg.refill} per second, so a burst gets cut off. The real one keeps the bucket in Redis behind a Lua script, so every server shares the same count. Open the control room to tune it.`, true); }
+    hud();
+  }
+}
+function deliver(p, id){
+  p.owner = id; p.stage = "toConsumer";
+  const n = N[id];
+  moveTo(p, n.x, n.y, 260, () => { if (!consumers[id].alive) return redeliver(p); process(p, id); });
+}
+function process(p, id){
+  const n = N[id]; p.stage = "proc"; p.color = COL.cobalt;
+  wait(p, .28 + rand() * .3, () => {
+    if (!consumers[id].alive) return redeliver(p);
+    if (p.poison || rand() < .06) return failed(p, id);
+    if (breaker.state === "open" || (breaker.state === "half" && breaker.probe)){
+      nodeLabel(n, "breaker open", COL.red); return failed(p, id);
+    }
+    p.probe = breaker.state === "half"; if (p.probe) breaker.probe = true;
+    p.stage = "toStore";
+    moveTo(p, N.store.x, N.store.y, 280, () => atStore(p, id));
+  }, n);
+}
+function atStore(p, id){
+  if (!db.up){
+    p.stage = "dbWait";
+    wait(p, DB_TIMEOUT_S, () => {
+      recordWrite(false, p.probe); p.probe = false;
+      nodeLabel(N.store, "timeout", COL.red); p.color = COL.red;
+      p.stage = "back"; const n = N[id];
+      moveTo(p, n.x, n.y, 280, () => { if (!consumers[id].alive) return redeliver(p); failed(p, id); });
+    }, N.store);
+    return;
+  }
+  recordWrite(true, p.probe); p.probe = false;
+  p.stage = "stored"; wait(p, .08, () => respond(p), N.store);
+}
+function failed(p, id){
+  p.attempt++; p.color = COL.red; const n = N[id];
+  if (p.attempt > MAX_ATTEMPTS){
+    p.stage = "toDLQ"; p.owner = null; nodeLabel(n, "to DLQ", COL.red);
+    moveTo(p, N.dlq.x, N.dlq.y, 240, () => {
+      p.done = true; stats.dlqTotal++;
+      dlqMsgs.push({poison:p.poison, user:p.user, ox:p.ox, oy:p.oy});
+      fade(p); hud();
+      if (!seenDLQ){ seenDLQ = true; say(`<strong>A message just went to the dead-letter queue.</strong> It failed, retried ${MAX_ATTEMPTS} times with exponential backoff and jitter, and failed again, so it was set aside instead of blocking everything behind it in its partition. You can replay dead letters from the control room.`); }
+    });
+  } else {
+    stats.retry++; nodeLabel(n, "retry " + p.attempt, COL.red); p.stage = "backoff"; hud();
+    const backoff = .22 * Math.pow(2, p.attempt - 1) * (.8 + rand() * .4);
+    wait(p, backoff, () => { if (!consumers[id].alive) return redeliver(p); process(p, id); }, n);
+  }
+}
+function redeliver(p){
+  p.stage = "redeliver"; p.owner = null; p.color = COL.cobalt;
+  label(p.x, p.y - 22 * S, "redelivered", COL.ink2);
+  const t = lanePoint(p.lane, kGeom().len / 2 - 10 * S);
+  moveTo(p, t.x, t.y, 300, () => enqueue(p, true));
+}
+function respond(p){
+  p.stage = "respond"; p.color = COL.ok;
+  const mx = (p.x + p.ox) / 2, my = (p.y + p.oy) / 2;
+  const cx = vertical ? W * .04 : mx, cy = vertical ? my : H * .02;
+  moveTo(p, p.ox, p.oy, 560, () => {
+    finish(p, "ok"); latencies.push({t:simT, v:simT - p.born}); okTimes.push(simT);
+    label(p.ox, p.oy - 18 * S, "200", COL.ok); fade(p); hud();
+  }, cx, cy);
+}
 
-                    <div class="timeline-box-main">
-                        <h6>12th board</h6>
-                         <ul>
-                          <li>8.7 cgpa</li>  
-                           
-                          
+/* consumer group */
+function startRebalance(reason){ rebalancing = true; rebalanceAt = simT + REBALANCE_S; logEv(reason + ". Rebalancing the consumer group."); }
+function finishRebalance(){
+  rebalancing = false;
+  const live = CIDS.filter(id => consumers[id].alive);
+  assign = [0, 1, 2].map(l => live.length ? live[l % live.length] : null);
+  CIDS.forEach(id => { consumers[id].rr = 0; consumers[id].timer = 0; });
+  logEv(live.length ? "Assigned " + assign.map((a, l) => `p${l} to ${a}`).join(", ") + "." : "No consumers left. All 3 partitions are unassigned and lag will grow.");
+}
+function kill(id){
+  const c = consumers[id]; if (!c || !c.alive) return;
+  c.alive = false; logEv(`${id} stopped`);
+  for (const p of parts) if (!p.done && p.owner === id && (p.stage === "toConsumer" || p.stage === "proc" || p.stage === "backoff")) redeliver(p);
+  startRebalance(`${id} left the group`);
+}
+function restart(id){
+  const c = consumers[id]; if (!c || c.alive) return;
+  c.alive = true; c.timer = 0; logEv(`${id} started`);
+  startRebalance(`${id} joined the group`);
+}
 
-                        </ul>
-                    </div>
-                    
-                </div>
-                
-                <div class="timeline-box">
-                    
-                     <div class="timeline-box-header">
-                      <span>  <img src="https://i.postimg.cc/xdVtsrT2/JKIAPT-Allahabad-Logo.jpg"></span>
-                      <span>B.Tech(Cse)</span>
-                      <span>JKIAPT</span>
-                      <span>2019-2023</span>
-                    </div>
+/* circuit breaker in front of the datastore */
+function recordWrite(ok, probe){
+  if (breaker.state === "half"){
+    if (!probe) return;
+    breaker.probe = false;
+    if (ok){ breaker.state = "closed"; breaker.win = []; logEv("The probe write worked. Circuit breaker closed."); }
+    else { breaker.state = "open"; breaker.openedAt = simT; logEv("The probe write failed. Circuit breaker open again."); }
+    return;
+  }
+  if (breaker.state !== "closed") return;
+  breaker.win.push(ok); if (breaker.win.length > 10) breaker.win.shift();
+  const fails = breaker.win.filter(x => !x).length;
+  if (breaker.win.length >= 4 && fails / breaker.win.length >= .5){
+    breaker.state = "open"; breaker.openedAt = simT; breaker.win = [];
+    logEv(`Circuit breaker open after ${fails} failed writes. Services fail fast for ${BREAKER_OPEN_S} s.`);
+  }
+}
+function setDb(up){
+  if (db.up === up) return; db.up = up;
+  logEv(up ? "Database back up" : "Database down. Writes will time out.");
+}
+function replay(){
+  const n = dlqMsgs.length; if (!n) return 0;
+  dlqMsgs.splice(0).forEach((m, i) => {
+    const p = mk(N.dlq.x, N.dlq.y, m.user);
+    p.ox = m.ox; p.oy = m.oy; p.poison = m.poison; p.lane = Math.floor(rand() * 3); p.stage = "replay";
+    parts.push(p);
+    wait(p, i * .06, () => { const e = lanePoint(p.lane, -kGeom().len / 2); moveTo(p, e.x, e.y, 260, () => enqueue(p, false)); });
+  });
+  logEv(`Replayed ${n} dead ${n === 1 ? "letter" : "letters"} into Kafka.`); hud();
+  return n;
+}
 
-                    <div class="timeline-box-main">
-                        <h6>Cgpa( Year wise )</h6>
-                         <ul>
-                          <li>1st year (8.6)</li>  
-                          <li>2nd year (9.6)</li>  
-                          <li>3rd year(ongoing)</li>  
-                          <li>4th year(ongoing)</li>  
-                            
-                        </ul>
-                    </div>
-                </div>
-                
-                
-                <div id="timeline-indicator">
-                    <div id="mark-dot1">
-            <i class="fas fa-circle fa-xs"></i> 
-                    </div>
-                    <i class="fas fa-car-side"></i>
-             
-                          <div id="mark-dot2">
-            <i class="fas fa-circle fa-xs"></i> 
-                    </div>
-                    <div id="mark-dot3">
-            <i class="fas fa-circle fa-xs"></i> 
-                    </div>
-                    <div id="mark-dot4">
-            <i class="fas fa-circle fa-xs"></i> 
+/* the main step: everything advances by dt seconds of simulated time */
+function step(dt){
+  simT += dt;
+  tokens = Math.min(cfg.cap, tokens + dt * cfg.refill);
+  bucketPulse = Math.max(0, bucketPulse - dt * 3);
+  if (cfg.traffic > 0){
+    ambT -= dt;
+    let guard = 0;
+    while (ambT <= 0 && guard++ < 8){
+      ambT += -Math.log(1 - rand()) / cfg.traffic; // Poisson arrivals
+      if (vertical) spawn(W * (.06 + rand() * .3), H * .06, false);
+      else spawn(W * .035, H * (.28 + rand() * .44), false);
+    }
+    if (ambT < 0) ambT = 0;
+  }
+  if (breaker.state === "open" && simT - breaker.openedAt >= BREAKER_OPEN_S){
+    breaker.state = "half"; breaker.probe = false; logEv("Circuit breaker half-open. Letting one write through as a probe.");
+  }
+  if (rebalancing && simT >= rebalanceAt) finishRebalance();
+  if (!rebalancing){
+    for (const id of CIDS){
+      const c = consumers[id]; if (!c.alive) continue;
+      c.timer -= dt; if (c.timer > 0) continue;
+      const mine = [0, 1, 2].filter(l => assign[l] === id);
+      let took = false;
+      for (let k = 0; k < mine.length; k++){
+        const l = mine[(c.rr + k) % mine.length];
+        if (lanes[l].length){ c.rr = (c.rr + k + 1) % mine.length; deliver(lanes[l].shift(), id); took = true; break; }
+      }
+      c.timer = took ? POLL : .05;
+    }
+  }
+  const g = kGeom();
+  for (let i = parts.length - 1; i >= 0; i--){
+    const p = parts[i]; if (!p) continue;
+    if (p.mode === "move"){
+      p.t += dt; const k = Math.min(1, p.t / p.dur);
+      const e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+      if (p.cx != null){ const u = 1 - e; p.x = u*u*p.fx + 2*u*e*p.cx + e*e*p.tx; p.y = u*u*p.fy + 2*u*e*p.cy + e*e*p.ty; }
+      else { p.x = p.fx + (p.tx - p.fx) * e; p.y = p.fy + (p.ty - p.fy) * e; }
+      if (k >= 1){ const cb = p.cb; p.mode = "idle"; p.cb = null; if (cb) cb(); }
+    } else if (p.mode === "wait"){
+      p.w -= dt; p.ang += dt * 5;
+      if (p.at){ const r = (p.at.kind === "db" ? 16 : 26) * S, f = Math.min(1, Math.max(0, dt) * 12); p.x += (p.at.x + Math.cos(p.ang) * r - p.x) * f; p.y += (p.at.y + Math.sin(p.ang) * r - p.y) * f; }
+      if (p.w <= 0){ const cb = p.cb; p.mode = "idle"; p.cb = null; if (cb) cb(); }
+    } else if (p.mode === "queued"){
+      const idx = lanes[p.lane].indexOf(p);
+      const along = Math.max(-g.len / 2 + 6 * S, g.len / 2 - 10 * S - idx * 11 * S);
+      const t = lanePoint(p.lane, along), f = Math.min(1, dt * 9);
+      p.x += (t.x - p.x) * f; p.y += (t.y - p.y) * f;
+    } else if (p.mode === "fade"){
+      p.a -= dt * 2.2;
+    }
+    p.hist.push(p.x, p.y); if (p.hist.length > 16) p.hist.splice(0, 2);
+  }
+  for (let i = parts.length - 1; i >= 0; i--) if (parts[i].mode === "fade" && parts[i].a <= 0) parts.splice(i, 1);
+  for (let i = rings.length - 1; i >= 0; i--){ rings[i].life -= dt * 1.4; if (rings[i].life <= 0) rings.splice(i, 1); }
+  for (let i = labels.length - 1; i >= 0; i--){ labels[i].life -= dt * .8; labels[i].y -= dt * (labels[i].key ? 6 : 16); if (labels[i].life <= 0) labels.splice(i, 1); }
+  sampleT += dt;
+  if (sampleT >= .5){ sampleT -= .5; sample(); }
+}
 
-                    
-                    
-                    
-                </div>
-                
-            </div>
+/* metrics */
+function sample(){
+  const cut = simT - 10;
+  while (okTimes.length && okTimes[0] < cut) okTimes.shift();
+  while (rejTimes.length && rejTimes[0] < cut) rejTimes.shift();
+  while (latencies.length && latencies[0].t < cut) latencies.shift();
+  const rps = okTimes.filter(t => t > simT - 2).length / 2;
+  const thr = rejTimes.filter(t => t > simT - 2).length / 2;
+  const sorted = latencies.map(l => l.v).sort((a, b) => a - b);
+  const p99 = sorted.length ? sorted[Math.min(sorted.length - 1, Math.floor(sorted.length * .99))] : null;
+  const lag = lanes[0].length + lanes[1].length + lanes[2].length;
+  const push = (k, v) => { series[k].push(v); if (series[k].length > 120) series[k].shift(); };
+  push("rps", rps); push("p99", p99); push("lag", lag); push("thr", thr);
+  if (panelOpen) drawMetrics();
+}
+const MET = [
+  {k:"rps", el:"m-rps", cv:"s-rps", color:COL.ok, fmt:v => v.toFixed(1)},
+  {k:"p99", el:"m-p99", cv:"s-p99", color:COL.cobalt, fmt:v => v == null ? "none yet" : v.toFixed(2) + " s"},
+  {k:"lag", el:"m-lag", cv:"s-lag", color:COL.ink, fmt:v => String(v)},
+  {k:"thr", el:"m-thr", cv:"s-thr", color:COL.amber, fmt:v => v.toFixed(1)}
+];
+function drawMetrics(){
+  MET.forEach(m => {
+    const data = series[m.k], last = data.length ? data[data.length - 1] : (m.k === "p99" ? null : 0);
+    f(m.el).textContent = m.fmt(last);
+    const c = f(m.cv), r = c.getBoundingClientRect(); if (!r.width) return;
+    const dpr = Math.min(2, devicePixelRatio || 1);
+    if (c.width !== Math.round(r.width * dpr)){ c.width = Math.round(r.width * dpr); c.height = Math.round(r.height * dpr); }
+    const x = c.getContext("2d"); x.setTransform(dpr, 0, 0, dpr, 0, 0); x.clearRect(0, 0, r.width, r.height);
+    const vals = data.filter(v => v != null), max = Math.max(m.k === "p99" ? 1 : 2, ...vals) * 1.15;
+    x.strokeStyle = "rgba(19,33,58,.1)"; x.lineWidth = 1; x.beginPath(); x.moveTo(0, r.height - .5); x.lineTo(r.width, r.height - .5); x.stroke();
+    const step = r.width / 119; let started = false;
+    x.beginPath();
+    data.forEach((v, i) => { if (v == null){ started = false; return; }
+      const px = r.width - (data.length - 1 - i) * step, py = r.height - 2 - (v / max) * (r.height - 4);
+      if (!started){ x.moveTo(px, py); started = true; } else x.lineTo(px, py); });
+    x.strokeStyle = m.color; x.lineWidth = 1.6; x.lineJoin = "round"; x.stroke();
+  });
+}
 
+/* event log */
+const logEl = f("log");
+function logEv(text){
+  const d = new Date(), t = [d.getHours(), d.getMinutes(), d.getSeconds()].map(n => String(n).padStart(2, "0")).join(":");
+  events.unshift({t, text}); if (events.length > 8) events.pop();
+  logEl.innerHTML = events.map(e => `<li><time>${e.t}</time>${e.text}</li>`).join("");
+}
 
-        </section>
+/* HUD + notices */
+const hudEls = {sent:f("c-sent"), ok:f("c-ok"), t429:f("c-429"), t503:f("c-503"), retry:f("c-retry")};
+const dlqEl = f("c-dlq"), replayBtn = f("t-replay");
+let hudQueued = false;
+function hud(){
+  if (hudQueued) return; hudQueued = true;
+  queueMicrotask(() => { hudQueued = false;
+    for (const k in hudEls) hudEls[k].textContent = stats[k];
+    dlqEl.textContent = dlqMsgs.length;
+    replayBtn.disabled = dlqMsgs.length === 0;
+    replayBtn.textContent = dlqMsgs.length ? `Replay ${dlqMsgs.length} dead ${dlqMsgs.length === 1 ? "letter" : "letters"}` : "Replay dead letters";
+  });
+}
+const notice = f("notice"), NOTICE0 = notice.innerHTML;
+let sayAt = 0, sayQ = [];
+function say(html, now){
+  const t = performance.now();
+  if (!now && sayAt && t - sayAt < 8000){ if (sayQ.length < 3) sayQ.push(html); return; }
+  sayAt = t; notice.innerHTML = html;
+}
+setInterval(() => { if (sayQ.length && performance.now() - sayAt >= 8000){ sayAt = performance.now(); notice.innerHTML = sayQ.shift(); } }, 500);
 
-        <section id="portfolio">
-             
-             <div class="section-header"> 
-              
-              <h1 class="header"> <i class="fas fa-briefcase"></i>Portfolio</h1>
+/* drawing */
+function rr(x, y, w, h, r){ ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y, w, h, r); else ctx.rect(x, y, w, h); }
+function txt(t, x, y, size, color, weight, align){ ctx.font = `${weight || 500} ${size}px "IBM Plex Sans", system-ui, sans-serif`; ctx.fillStyle = color; ctx.textAlign = align || "center"; ctx.textBaseline = "middle"; ctx.fillText(t, x, y); }
+function strokeFor(n){ return hover === n ? COL.cobalt : COL.ink; }
+function line(a, b){ ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
 
+function draw(){
+  ctx.clearRect(0, 0, W, H);
+  const g = kGeom();
+  ctx.lineCap = "butt";
+  // static edges
+  ctx.lineWidth = 1.25; ctx.strokeStyle = "rgba(19,33,58,.18)"; ctx.setLineDash([]);
+  line(N.gateway, N.limiter);
+  line(N.limiter, lanePoint(1, -g.len / 2));
+  CIDS.forEach(c => line(N[c], N.store));
+  // partition assignment edges
+  for (let l = 0; l < 3; l++){
+    const a = assign[l], end = lanePoint(l, g.len / 2);
+    if (rebalancing || !a) continue;
+    ctx.strokeStyle = "rgba(19,33,58,.26)"; ctx.lineWidth = 1.25; line(end, N[a]);
+  }
+  ctx.setLineDash([4, 5]); ctx.strokeStyle = "rgba(214,58,64,.35)"; ctx.lineWidth = 1.25;
+  CIDS.forEach(c => line(N[c], N.dlq));
+  ctx.setLineDash([]);
 
-             </div>
+  // gateway
+  { const n = N.gateway, w = 76 * S, h = 46 * S; rr(n.x - w/2, n.y - h/2, w, h, 10 * S); ctx.fillStyle = COL.paper; ctx.fill(); ctx.lineWidth = 1.6; ctx.strokeStyle = strokeFor(n); ctx.stroke();
+    const shedding = inflight() > SHED;
+    for (let i = 0; i < 3; i++){ ctx.beginPath(); const yy = n.y - 9 * S + i * 9 * S; ctx.moveTo(n.x - 20 * S, yy); ctx.lineTo(n.x + 20 * S, yy); ctx.strokeStyle = shedding ? "rgba(122,79,208,.7)" : "rgba(19,33,58,.35)"; ctx.lineWidth = 1.4; ctx.stroke(); }
+    txt(n.label, n.x, n.y + h/2 + 16 * S, 12.5 * S, COL.ink2);
+    if (shedding) txt("shedding load", n.x, n.y + h/2 + 32 * S, 11.5 * S, COL.violet, 600); }
 
-             <div id="portfolio-main">   
-              <div class="portfolio-main-1"><div class="para"><a href="https://github.com/the-evolver/smart_contact_manager">Smart contact manager </a> </div></div>
-              <div class="portfolio-main-1"><div class="para"><a href="https://the-evolver.github.io/calculator-project/ ">Calculator project</a></div></div>
-	      <div class="portfolio-main-1"><div  class="para"><a href="https://the-evolver.github.io/catchme_game/ ">Catch me game </a></div></div>
-	      <div class="portfolio-main-2"><div  class="para"><a href=" https://the-evolver.github.io/move_the_ball/">Giphy effect</a></div></div>
-              <div class="portfolio-main-2"><div  class="para"><a href="https://the-evolver.github.io/ping_pong_game/ ">Ping Pong game</a></div></div>
-              <div class="portfolio-main-2"><div  class="para">Slack clone ( Initial stage ) </div></div>
+  // token bucket
+  { const n = N.limiter, w = 50 * S, h = 66 * S, x0 = n.x - w/2, y0 = n.y - h/2;
+    ctx.beginPath(); ctx.moveTo(x0 - 4 * S, y0); ctx.lineTo(x0, y0 + h - 8 * S); ctx.quadraticCurveTo(x0, y0 + h, x0 + 8 * S, y0 + h); ctx.lineTo(x0 + w - 8 * S, y0 + h); ctx.quadraticCurveTo(x0 + w, y0 + h, x0 + w, y0 + h - 8 * S); ctx.lineTo(x0 + w + 4 * S, y0);
+    ctx.fillStyle = COL.paper; ctx.fill(); ctx.lineWidth = 1.6; ctx.strokeStyle = strokeFor(n); ctx.stroke();
+    const cap = cfg.cap, cols = Math.ceil(cap / 10), rows = Math.min(cap, 10);
+    const sp = Math.min(11.5, (h - 12 / S) / rows) * S, r = Math.min(4.4 * S, sp / 2.5);
+    const full = Math.floor(tokens + 1e-9), frac = tokens - full;
+    for (let i = 0; i < cap; i++){
+      const col = Math.floor(i / 10), row = i % 10;
+      const tx = n.x + (cols === 1 ? 0 : (col - (cols - 1) / 2) * 13 * S), ty = y0 + h - 6 * S - sp / 2 - row * sp;
+      ctx.beginPath(); ctx.arc(tx, ty, r, 0, Math.PI * 2);
+      if (i < full){ ctx.fillStyle = COL.cobalt; ctx.fill(); }
+      else if (i === full){ ctx.strokeStyle = "rgba(42,84,245,.25)"; ctx.lineWidth = 1.2; ctx.stroke();
+        ctx.beginPath(); ctx.arc(tx, ty, r, -Math.PI/2, -Math.PI/2 + frac * Math.PI * 2); ctx.strokeStyle = COL.cobalt; ctx.lineWidth = 1.6; ctx.stroke(); }
+      else { ctx.strokeStyle = "rgba(19,33,58,.16)"; ctx.lineWidth = 1.2; ctx.stroke(); }
+    }
+    if (bucketPulse > 0){ ctx.beginPath(); ctx.arc(n.x, y0 + h/2, (30 + (1 - bucketPulse) * 14) * S, 0, Math.PI * 2); ctx.strokeStyle = `rgba(42,84,245,${bucketPulse * .35})`; ctx.lineWidth = 1.5; ctx.stroke(); }
+    const empty = tokens < 1;
+    txt(n.label, n.x, y0 + h + 16 * S, 12.5 * S, COL.ink2);
+    txt(`${full} of ${cap} tokens`, n.x, y0 + h + 32 * S, 11.5 * S, empty ? COL.amberText : COL.ink2, empty ? 600 : 400); }
 
+  // kafka log
+  { const n = N.kafka, L = g.len, Cr = g.cross, bw = vertical ? Cr : L, bh = vertical ? L : Cr;
+    rr(n.x - bw/2, n.y - bh/2, bw, bh, 8 * S); ctx.fillStyle = COL.paper; ctx.fill(); ctx.lineWidth = 1.6; ctx.strokeStyle = strokeFor(n); ctx.stroke();
+    for (let l = 0; l < 3; l++){
+      const a = lanePoint(l, -L/2 + 6 * S), b = lanePoint(l, L/2 - 6 * S);
+      ctx.strokeStyle = "rgba(19,33,58,.16)"; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+      for (let k = 0; k < 10; k++){ const p = lanePoint(l, -L/2 + 10 * S + k * (L - 20 * S) / 9); ctx.beginPath(); ctx.arc(p.x, p.y, 1.1, 0, 6.28); ctx.fillStyle = "rgba(19,33,58,.22)"; ctx.fill(); }
+      const lagN = lanes[l].length, lp = lanePoint(l, L/2 + 11 * S);
+      const unassigned = !rebalancing && !assign[l];
+      txt("p" + l, lp.x + (vertical ? 0 : 1), lp.y + (vertical ? 1 : 0), 10 * S, unassigned ? COL.red : COL.ink2, 600);
+      if (lagN > 6){ const q = lanePoint(l, -L/2 - 14 * S); txt("+" + lagN, q.x, q.y, 10.5 * S, COL.ink, 600); }
+    }
+    if (rebalancing){ txt("rebalancing", n.x + (vertical ? bw/2 + 44 * S : 0), n.y - (vertical ? 0 : bh/2 + 14 * S), 12 * S, COL.amberText, 600); }
+    if (vertical){ txt("Kafka", n.x - bw/2 - 10 * S, n.y - 8 * S, 12.5 * S, COL.ink2, 500, "right"); txt("3 partitions", n.x - bw/2 - 10 * S, n.y + 9 * S, 11.5 * S, COL.ink2, 400, "right"); }
+    else txt(n.label, n.x, n.y + bh/2 + 16 * S, 12.5 * S, COL.ink2); }
 
-             </div>
+  // services
+  CIDS.forEach(id => { const n = N[id], r = 22 * S, alive = consumers[id].alive;
+    let busy = 0; for (const p of parts) if (p.owner === id && p.stage === "proc") busy++;
+    if (busy && alive){ ctx.beginPath(); ctx.arc(n.x, n.y, r + 7 * S, 0, 6.28); ctx.fillStyle = "rgba(42,84,245,.08)"; ctx.fill(); }
+    ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, 6.28); ctx.fillStyle = alive ? COL.paper : COL.fog; ctx.fill();
+    ctx.lineWidth = 1.6; ctx.strokeStyle = alive ? strokeFor(n) : "rgba(214,58,64,.8)"; if (!alive) ctx.setLineDash([3, 3]); ctx.stroke(); ctx.setLineDash([]);
+    if (alive){ ctx.beginPath(); ctx.arc(n.x, n.y, 4 * S, 0, 6.28); ctx.fillStyle = busy ? COL.cobalt : "rgba(19,33,58,.3)"; ctx.fill(); }
+    else { ctx.strokeStyle = COL.red; ctx.lineWidth = 1.8; const q = 7 * S; ctx.beginPath(); ctx.moveTo(n.x - q, n.y - q); ctx.lineTo(n.x + q, n.y + q); ctx.moveTo(n.x + q, n.y - q); ctx.lineTo(n.x - q, n.y + q); ctx.stroke(); }
+    if (vertical) txt(n.label, n.x, n.y - r - 12 * S, 12.5 * S, alive ? COL.ink2 : COL.red);
+    else txt(n.label, n.x + r + 10 * S, n.y, 12.5 * S, alive ? COL.ink2 : COL.red, 500, "left");
+    if (!alive) txt("stopped", n.x, n.y + r + 13 * S, 11.5 * S, COL.red, 600); });
 
-        </section>
+  // datastore
+  { const n = N.store, w = 50 * S, h = 52 * S, ry = 7 * S, x0 = n.x - w/2, y0 = n.y - h/2;
+    ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y0 + h); ctx.ellipse(n.x, y0 + h, w/2, ry, 0, Math.PI, 0, true); ctx.lineTo(x0 + w, y0); ctx.ellipse(n.x, y0, w/2, ry, 0, 0, Math.PI, true);
+    ctx.fillStyle = db.up ? COL.paper : COL.fog; ctx.fill(); ctx.lineWidth = 1.6; ctx.strokeStyle = db.up ? strokeFor(n) : COL.red; if (!db.up) ctx.setLineDash([3, 3]); ctx.stroke();
+    ctx.beginPath(); ctx.ellipse(n.x, y0, w/2, ry, 0, 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]);
+    ctx.beginPath(); ctx.ellipse(n.x, y0 + h/2, w/2, ry, 0, 0, Math.PI); ctx.strokeStyle = "rgba(19,33,58,.3)"; ctx.lineWidth = 1.2; ctx.stroke();
+    txt(db.up ? n.label : "Database down", n.x, y0 + h + ry + 16 * S, 12.5 * S, db.up ? COL.ink2 : COL.red, db.up ? 500 : 600);
+    const bs = breaker.state, bt = bs === "closed" ? "breaker closed" : bs === "open" ? "breaker open" : "breaker half-open";
+    const bc = bs === "closed" ? COL.ok : bs === "open" ? COL.red : COL.amberText;
+    const by = y0 + h + ry + 34 * S;
+    ctx.beginPath(); ctx.arc(n.x - 44 * S, by, 3.5 * S, 0, 6.28); ctx.fillStyle = bc; ctx.fill();
+    txt(bt, n.x - 36 * S, by, 11.5 * S, bc, 600, "left"); }
 
-        <section id="contact">
-             <div class="section-header">
-                <h1 class="header"> <i class="far fa-id-card"></i>Contact</h1>
-                
-            </div>
-            <div id="contact-main">
-                <div id="contact-main-input-box">
-                    <form>
-                        <input type="text" name="name" placeholder="Your-Name">
-                         <input type="email" name="email" placeholder="Your-Email">
-                         <div>
-                          <input type="text" name="message" placeholder="Message"></div>
-                           <input type="submit" name="submit" value="SEND MESSAGE" >
+  // DLQ
+  { const n = N.dlq, w = 84 * S, h = 34 * S; rr(n.x - w/2, n.y - h/2, w, h, 7 * S); ctx.fillStyle = COL.paper; ctx.fill(); ctx.lineWidth = 1.6; ctx.strokeStyle = hover === n ? COL.cobalt : "rgba(214,58,64,.7)"; ctx.stroke();
+    const shown = Math.min(dlqMsgs.length, 14);
+    for (let i = 0; i < shown; i++){ const cx = n.x - w/2 + 9 * S + (i % 7) * 11 * S, cy = n.y - 6 * S + Math.floor(i / 7) * 11 * S; rr(cx - 3.5 * S, cy - 3.5 * S, 7 * S, 7 * S, 1.5 * S); ctx.fillStyle = "rgba(214,58,64,.75)"; ctx.fill(); }
+    txt(dlqMsgs.length > 14 ? `Dead letters, ${dlqMsgs.length}` : n.label, n.x, n.y + h/2 + 16 * S, 12.5 * S, COL.ink2); }
 
-                    </form>
+  // click rings
+  rings.forEach(r => { ctx.beginPath(); ctx.arc(r.x, r.y, Math.max(0, (6 + (1 - Math.min(1, r.life)) * 22) * S), 0, 6.28); ctx.strokeStyle = `rgba(42,84,245,${r.life * (r.user ? .55 : .25)})`; ctx.lineWidth = 1.4; ctx.stroke(); });
 
+  // particles with trails
+  ctx.lineCap = "round";
+  parts.forEach(p => {
+    const h = p.hist, a = Math.max(0, p.a);
+    for (let i = 2; i < h.length; i += 2){
+      ctx.beginPath(); ctx.moveTo(h[i-2], h[i-1]); ctx.lineTo(h[i], h[i+1]);
+      ctx.globalAlpha = a * (i / h.length) * .5; ctx.strokeStyle = p.color; ctx.lineWidth = 3.4 * S * (i / h.length); ctx.stroke();
+    }
+    ctx.globalAlpha = a;
+    ctx.beginPath(); ctx.arc(p.x, p.y, (p.user ? 4.8 : 4) * S, 0, 6.28); ctx.fillStyle = p.color; ctx.fill();
+    if (p.user){ ctx.beginPath(); ctx.arc(p.x, p.y, 7.5 * S, 0, 6.28); ctx.strokeStyle = p.color; ctx.lineWidth = 1.2; ctx.globalAlpha = a * .5; ctx.stroke(); }
+    ctx.globalAlpha = 1;
+  });
+  ctx.lineCap = "butt";
+  labels.forEach(l => { ctx.globalAlpha = Math.min(1, l.life * 1.6); txt(l.count > 1 ? `${l.text} \u00d7${l.count}` : l.text, l.x, l.y, 13 * S, l.color === COL.amber ? COL.amberText : l.color, 600); ctx.globalAlpha = 1; });
+}
 
+/* pointer interaction */
+function nodeAt(x, y){
+  const g = kGeom();
+  for (const k in N){
+    const n = N[k];
+    if (k === "kafka"){ const bw = vertical ? g.cross : g.len, bh = vertical ? g.len : g.cross; if (Math.abs(x - n.x) < bw/2 + 4 && Math.abs(y - n.y) < bh/2 + 4) return n; continue; }
+    const wide = k === "dlq" || k === "gateway";
+    if (Math.abs(x - n.x) < (wide ? 42 : 34) * S && Math.abs(y - n.y) < (wide ? 24 : 36) * S) return n;
+  }
+  return null;
+}
+function local(e){ const r = cv.getBoundingClientRect(); return {x:e.clientX - r.left, y:e.clientY - r.top}; }
+cv.addEventListener("pointermove", e => {
+  if (e.pointerType === "touch") return;
+  const {x, y} = local(e), n = nodeAt(x, y);
+  hover = n; cv.style.cursor = n ? "pointer" : "crosshair";
+  if (n){ tip.textContent = n.tip; tip.style.left = Math.max(110, Math.min(W - 110, n.x)) + "px"; tip.style.top = (n.y - (n.kind === "bucket" ? 38 : 28) * S) + "px"; tip.classList.add("on"); }
+  else tip.classList.remove("on");
+});
+cv.addEventListener("pointerleave", () => { hover = null; tip.classList.remove("on"); });
+cv.addEventListener("click", e => {
+  const {x, y} = local(e), n = nodeAt(x, y);
+  if (n && n.project) openProject(n.project);
+  else spawn(x, y, true);
+});
+function origin(){ return vertical ? {x:W * .22, y:H * .07} : {x:W * .06, y:H * .5}; }
+function sendOne(){ const o = origin(); spawn(o.x + (rand() - .5) * 20, o.y + (rand() - .5) * 40, true); }
+function burst(n){ for (let i = 0; i < n; i++) setTimeout(() => { const o = origin(); spawn(o.x + (rand() - .5) * (vertical ? 120 : 24), o.y + (rand() - .5) * (vertical ? 16 : 120), true); }, i * 70); }
+f("b-one").addEventListener("click", sendOne);
+f("b-burst").addEventListener("click", () => burst(12));
 
-                </div>
-                <div id="contact-main-info">
-                    <div id="info-header">
-                    <span>Get In touch</span>
-                    <p> Looking for Internship opportunities</p>
-                    </div>
-                    <div id="info-main">
-                    <div id="info-main-header">My Address</div>
-                    <div id="info-main-main"><div> <i class="fas fa-map-marker-alt"></i>Bangalore,India</div>
-                    <div > <i class="fas fa-phone"></i>8050747519</div>
-                    <div> <i class="fas fa-envelope-square"></i>contacts.atulsharma@gmail.com</div></div>
+/* control room */
+const stage = f("stage"), panel = f("panel"), panelBtn = f("b-panel");
+let panelOpen = false;
+panelBtn.addEventListener("click", () => {
+  panelOpen = !panelOpen;
+  panel.hidden = !panelOpen; stage.classList.toggle("open", panelOpen);
+  panelBtn.setAttribute("aria-expanded", panelOpen);
+  panelBtn.textContent = panelOpen ? "Close the control room" : "Open the control room";
+  if (panelOpen){ drawMetrics(); if (!events.length) logEv("Control room opened. Try stopping a service or taking the database down."); }
+});
+const sliders = [
+  {id:"traffic", fmt:v => v === 0 ? "off" : v.toFixed(1) + " per second"},
+  {id:"cap", fmt:v => v + (v === 1 ? " token" : " tokens")},
+  {id:"refill", fmt:v => v.toFixed(1) + " tokens per second"}
+];
+function applyCfg(o){
+  for (const k in o) if (k in cfg && isFinite(o[k])) cfg[k] = Number(o[k]);
+  cfg.traffic = Math.max(0, Math.min(8, cfg.traffic)); cfg.cap = Math.round(Math.max(1, Math.min(20, cfg.cap))); cfg.refill = Math.max(.5, Math.min(10, cfg.refill));
+  tokens = Math.min(tokens, cfg.cap);
+  if (cfg.traffic > 0) ambT = Math.min(ambT, 1 / cfg.traffic);
+  syncControls();
+}
+sliders.forEach(s => {
+  const input = f("r-" + s.id);
+  input.addEventListener("input", () => applyCfg({[s.id]: Number(input.value)}));
+});
+document.querySelectorAll(".tg[data-svc]").forEach(b => b.addEventListener("click", () => {
+  const id = b.dataset.svc;
+  if (consumers[id].alive){ kill(id);
+    say(`<strong>${id} stopped.</strong> Its partition goes unread while the consumer group rebalances, then a surviving service takes it over. Messages ${id} was holding were never committed, so Kafka redelivers them to the front of their partition.`, true); }
+  else restart(id);
+  syncControls();
+}));
+f("t-db").addEventListener("click", () => {
+  setDb(!db.up);
+  if (!db.up) say(`<strong>Database down.</strong> Writes now time out. Once half of the recent writes fail, the circuit breaker opens and the services stop calling the database for ${BREAKER_OPEN_S} seconds, failing fast instead of piling up. Messages that run out of retries go to the dead-letter queue. Bring the database back, then replay them.`, true);
+  syncControls();
+});
+replayBtn.addEventListener("click", () => { replay(); syncControls(); });
+f("b-reset").addEventListener("click", () => { resetAll(); logEv("System reset."); });
+function resetAll(){
+  Object.assign(cfg, DEFAULTS); resetState(); seen429 = seenDLQ = seen503 = false; sayQ = []; sayAt = 0;
+  notice.innerHTML = NOTICE0; logEl.innerHTML = "<li>Nothing has happened yet.</li>"; syncControls(); hud(); if (panelOpen) drawMetrics();
+}
+function syncControls(){
+  sliders.forEach(s => { const v = cfg[s.id]; f("r-" + s.id).value = v; f("o-" + s.id).textContent = s.fmt(v); });
+  document.querySelectorAll(".tg[data-svc]").forEach(b => { const alive = consumers[b.dataset.svc].alive;
+    b.setAttribute("aria-pressed", !alive); b.textContent = (alive ? "Stop " : "Restart ") + b.dataset.svc; });
+  const tdb = f("t-db"); tdb.setAttribute("aria-pressed", !db.up); tdb.textContent = db.up ? "Take the database down" : "Bring the database back";
+  hud();
+}
+syncControls();
 
-                    </div>
+/* invariants: used by the test suite and available from the console */
+function check(){
+  const errs = [], fly = inflight();
+  if (stats.sent !== stats.ok + stats.t429 + stats.t503 + dlqMsgs.length + fly)
+    errs.push(`conservation: sent ${stats.sent} != ok ${stats.ok} + 429 ${stats.t429} + 503 ${stats.t503} + dlq ${dlqMsgs.length} + inflight ${fly}`);
+  if (tokens < -1e-9 || tokens > cfg.cap + 1e-9) errs.push("tokens out of range: " + tokens);
+  const seenSet = new Set();
+  lanes.forEach((ln, l) => ln.forEach(p => {
+    if (seenSet.has(p)) errs.push("message queued twice"); seenSet.add(p);
+    if (p.mode !== "queued" || p.lane !== l || p.done) errs.push(`bad queued message in p${l}: ${p.mode}/${p.stage}`);
+  }));
+  for (const p of parts){
+    if (p.mode === "queued" && !seenSet.has(p)) errs.push("queued message missing from its partition");
+    if (!isFinite(p.x) || !isFinite(p.y)) errs.push("non-finite position");
+    if (!p.done && p.mode === "idle") errs.push(`stuck message at stage ${p.stage}`);
+    if (!p.done && p.mode === "fade") errs.push("unfinished message fading out");
+  }
+  if (!rebalancing){
+    const live = CIDS.filter(id => consumers[id].alive);
+    assign.forEach((a, l) => { if (live.length ? !live.includes(a) : a !== null) errs.push(`p${l} assigned to ${a}`); });
+    if (live.length) live.forEach(id => { if (!assign.includes(id) && live.length <= 3) errs.push(`${id} has no partition`); });
+  }
+  if (!["closed", "open", "half"].includes(breaker.state)) errs.push("breaker state " + breaker.state);
+  if (breaker.state !== "half" && breaker.probe) errs.push("probe flag set outside half-open");
+  return errs;
+}
 
-                </div>
-                <div  id="social-icons" >
+/* loop */
+let last = performance.now(), visible = true;
+function frame(t){
+  const dt = Math.max(0, Math.min(.05, (t - last) / 1000)); last = Math.max(last, t);
+  if (visible && !document.hidden){ if (!paused) step(dt); draw(); }
+  requestAnimationFrame(frame);
+}
+new IntersectionObserver(es => { visible = es[0].isIntersecting; last = performance.now(); }).observe(cv);
+let lastW = 0, lastH = 0;
+new ResizeObserver(() => {
+  const ow = W, oh = H; if (!layout()) return;
+  if (ow && oh && (ow !== W || oh !== H)){
+    const sx = W / ow, sy = H / oh;
+    parts.forEach(p => { p.x *= sx; p.y *= sy; p.ox *= sx; p.oy *= sy; p.hist = [];
+      if (p.mode === "move"){ p.tx *= sx; p.ty *= sy; p.fx = p.x; p.fy = p.y; p.cx = null; p.t = 0; } });
+    rings.length = 0; labels.length = 0;
+  }
+  draw();
+}).observe(cv);
+layout();
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => draw());
+if (cfg.traffic > 0) spawn(vertical ? W * .2 : W * .035, vertical ? H * .06 : H * .42, false);
+requestAnimationFrame(frame);
 
-                   <div>
-			   <ul class="horizontal-list text-center social-icons">
-                    <li>
-                        <a href="https://www.linkedin.com/in/atulcse/">
-                            <i class="fab fa-linkedin-in fa-2x"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/the-evolver">
-                            <i class="fab fa-github-square fa-2x"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://codeforces.com/profile/the_evolver"> 
-                           <i class="fa-solid fa-bug"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://auth.geeksforgeeks.org/user/metooo/profile">
-                            <i class="fas fa-user-astronaut fa-2x"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://leetcode.com/recursive_coder/">
-                            <i class="fab fa-studiovinari fa-2x"></i>
-                        </a>
-                    </li>
-                </ul>
-<!--                 <ul class="horizontal-list text-center social-icons">
-                    <li>
-                        <a href="https://www.linkedin.com/in/atulcse/">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-stack-overflow"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-google-plus-g"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-quora"></i>
-                        </a>
-                    </li>
-                </ul> -->
-
-            </div>
-
-
-            </div>
-            
-            </div>
-		
-              
-
-        </section>
-
-    </main>
-    <script type="text/javascript" src="myresume.js">
-	    
-		
-	</script>
-		
-
+window.portfolioSim = Object.freeze({
+  help(){ return "kill('rides'|'notify'|'links'), restart(id), database(false|true), replay(), set({traffic, cap, refill}), send(n), stats(), check(), reset()"; },
+  kill(id){ kill(id); syncControls(); }, restart(id){ restart(id); syncControls(); },
+  database(up){ setDb(!!up); syncControls(); }, replay(){ const n = replay(); syncControls(); return n; },
+  set(o){ applyCfg(o || {}); return Object.assign({}, cfg); },
+  send(n){ burst(Math.max(1, Math.min(50, n | 0 || 1))); },
+  stats(){ return Object.assign({}, stats, {inDLQ:dlqMsgs.length, inflight:inflight(), lag:lanes.map(l => l.length), breaker:breaker.state, assignment:assign.slice(), rebalancing, tokens:+tokens.toFixed(2), databaseUp:db.up, t:+simT.toFixed(2)}); },
+  check, reset(){ resetAll(); },
+  _pause(b){ paused = !!b; }, _step(dt, n){ for (let i = 0; i < (n || 1); i++) step(dt); draw(); }, _seed(s){ seed(s); }
+});
+try { console.log("%cYou opened the console, so you're my kind of person.%c\nThe diagram is scriptable. Try portfolioSim.kill('notify'), portfolioSim.database(false), or portfolioSim.help().", "font:600 14px system-ui;color:#2A54F5", "font:13px system-ui;color:#4A5872"); } catch (e) {}
+})();
+</script>
 </body>
 </html>
-
